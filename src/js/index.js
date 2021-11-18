@@ -1,6 +1,6 @@
 /*console.log("Hola como estas");
 
-/*const URL = 'http://localhost:5000/products/1';
+const URL = 'http://localhost:5000/products/1';
 
   fetch(URL)
   .then(response => response.json())
@@ -95,7 +95,7 @@ const fetchData = (api_url) => {
 
 
 
-const cardGenerator = object => {
+/* const cardGenerator = object => {
   const card = document.createElement('article');
   card.classList.add('card')
 
@@ -107,7 +107,7 @@ const cardGenerator = object => {
     <h3>${object.name}</h3>
     <h4>R$${object.price}</p>
     <p>ate ${object.parcelamento[0]}X de R$ ${object.parcelamento[1]}</p>
-    <button class="button" type="button">Comprar </button>
+    <button class="button" type="button">Comprar </button> 
   </div>
   `;
 
@@ -118,17 +118,116 @@ const cardGenerator = object => {
 const URL = 'http://localhost:5000/products';
 const cardsContent = document.getElementById('cards-content');
 
+fetch(URL)
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((usuario) => {
+      const card = cardGenerator(usuario);
+      cardsContent.appendChild(card);
+    }) 
+  })
+  .catch((err) => console.log(err));
 
-  fetch(URL)
-    .then((res) => res.json())
-    .then((data) => {
-  
-        data.forEach((usuario) => {
-          const card = cardGenerator(usuario);
-          cardsContent.appendChild(card);
-      })
-     
+
+const array = [{
+  "id": "1",
+  "name": "Camiseta Mescla",
+  "price": 28.8,
+  "parcelamento": [
+    3,
+    9.33
+  ],
+  "color": "Cinza",
+  "image": "/img/img_2.png",
+  "size": [
+    "M",
+    "GG"
+  ],
+  "date": "1995-12-17"
+},
+{
+  "id": "2",
+  "name": "Saia em couro",
+  "price": 398,
+  "parcelamento": [
+    5,
+    30
+  ],
+  "color": "Preto",
+  "image": "/img/img_3.png",
+  "size": [
+    "G",
+    "40"
+  ],
+  "date": "1996-12-17"
+},
+{
+  "id": "3",
+  "name": "Cardigan Tigre",
+  "price": 398.8,
+  "parcelamento": [
+    5,
+    30
+  ],
+  "color": "Laranja",
+  "image": "/img/img_4.png",
+  "size": [
+    "GG",
+    "44"
+  ],
+  "date": "1997-12-17"
+}]
+
+console.log(array)
+
+
+const color = array.filter( p => p.color == 'Cinza') 
+      
+console.log(color[0])
+
+const target = cardGenerator(color[0]);
+cardsContent.appendChild(target);  */
+
+
+
+
+
+
+
+const cardGenerator = object => {
+  const card = document.createElement('article');
+  card.classList.add('card')
+
+  card.innerHTML = `
+  <div class="card-image">
+    <img class="img-fluid" src="${object.image}" alt="imagen de ${object.name}">
+  </div>
+  <div class="card-body">
+    <h3>${object.name}</h3>
+    <h4>R$${object.price}</h4>
+    <p>ate ${object.parcelamento[0]}X de R$ ${object.parcelamento[1]}</p>
+    <button id="button-car" class="button-car" type="button" onclick="app">Comprar</button>
+  </div>
+  `;
+  let app = () => console.log('Hola')
+  return card;
+}
+
+
+
+const URL = 'http://localhost:5000/products';
+const cardsContent = document.getElementById('cards-content');
+
+
+const fetchData = fetch(URL)
+  .then((res) => res.json())
+  .then((data) => {
+    
+    data.forEach((usuario) => {
+      const card = cardGenerator(usuario);
+      cardsContent.appendChild(card);
     })
-    .catch((err) => console.log(err))
-
+   
+  })
+  .catch((err) => console.log(err));
 
