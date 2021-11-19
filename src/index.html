@@ -15,12 +15,15 @@
   
   <section id="cards-content" class="container"></section> -->
 
-  <header class="">
-    <p id="Car">Este es el carrito de compras</p>
-  </header>
+  <div class="Carrito"></div>
+
+
+
+
   <div class="container">
     
       <div class="row" id="items"></div>
+      <div class="carrito" id="carrito"></div>
   </div>
 
 
@@ -31,7 +34,7 @@
       <div class="card">
 
         <div class="card-image">
-          <img class="img-fluid" src="${object.image}" alt="imagen de ${object.name}">
+          <img class="img-fluid" src="" alt="">
         </div>
 
         <div class="card-body">
@@ -44,6 +47,24 @@
     
   </template>
 
+
+
+  <template id="template-carrito">
+    <tr>
+      <th scope="row">id</th>
+      <td>Café</td>
+      <td>1</td>
+      <td>
+          <button class="btn btn-info btn-sm">
+              +
+          </button>
+          <button class="btn btn-danger btn-sm">
+              -
+          </button>
+      </td>
+      <td>$ <span>500</span></td>
+    </tr>
+  </template>
   
 
   <script src="bundle.js"></script> 

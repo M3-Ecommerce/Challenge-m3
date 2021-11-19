@@ -1,3 +1,117 @@
+const items = document.getElementById('items');
+const templeteCard = document.getElementById('template-card').content; //acceder elementos
+
+const fragment = document.createDocumentFragment();
+const cardsContent = document.getElementById('cards-content');
+let car = {};
+
+
+// -----------------  Peticion a la API-------------
+
+const URL = 'http://localhost:5000/products';
+  
+const fetchData = fetch(URL)
+    .then((res) => res.json())
+    .then((data) => {
+      pintarCards(data);
+    })
+    .catch((err) => console.log(err))
+
+
+
+// -----------------  Estructura card -------------  
+
+const pintarCards = (data) => {
+  data.forEach((producto) => {
+    templeteCard.querySelector('img').setAttribute('src',producto.image);
+    templeteCard.querySelector('h4').textContent = producto.name;
+    templeteCard.querySelector('h5').textContent = `R$${producto.price}`;
+    templeteCard.querySelector('p').textContent = `ate ${producto.parcelamento[0]}X de R$ ${producto.parcelamento[1]}`;
+    templeteCard.querySelector('.button-card').dataset.id = producto.id;
+
+    const clone = templeteCard.cloneNode(true);
+    fragment.appendChild(clone)
+  })
+  items.appendChild(fragment)
+}
+
+
+
+
+
+// ----------------- Click boton comprar-----------
+
+
+items.addEventListener('click', event => {
+  addProduct(event);
+})
+
+const addProduct = event => {
+  //console.log(event.target) //detecta cualquier clik
+  //console.log(event.target.classList.contains('button-card')) //verdadero si preciosa boton
+
+  if (event.target.classList.contains('button-card')){
+    setCar(event.target.parentElement)//selecciona todo el div del items
+  }
+  event.stopPropagation(); //deterner otro efecto del items
+}
+
+
+const setCar = objeto => {
+  const producto = {
+    id: objeto.querySelector('.button-card').dataset.id,
+    name :objeto.querySelector('h4').textContent,
+    price: objeto.querySelector('h5').textContent,
+    cantidad :1,
+  }
+
+  if(car.hasOwnProperty(producto.id)) {
+    producto.cantidad = car[producto.id].cantidad + 1;
+  }
+
+  car[producto.id] = {...producto}
+
+
+
+   console.log(car)
+ 
+//let valor = document.getElementById('carrito');
+//console.log(Object.keys(car).length)
+//valor.innerHTML =car[2].cantidad; 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* const cardGenerator = object => {
   const card = document.createElement('article');
   card.classList.add('card')
@@ -37,52 +151,3 @@ const fetchData = fetch(URL)
    
   })
   .catch((err) => console.log(err)); */
-
-const items = document.getElementById('items')
-const templeteCard = document.getElementById('template-card').content //acceder elementos
-const fragment = document.createDocumentFragment();
-items.addEventListener('click', event => {
-  addProduct(event)
-})
-
-
-
-const URL = 'http://localhost:5000/products';
-const cardsContent = document.getElementById('cards-content');
-
-  
-const fetchData = fetch(URL)
-    .then((res) => res.json())
-    .then((data) => {
-      pintarCards(data);
-      
-     
-    })
-    .catch((err) => console.log(err))
-
-const pintarCards = (data)=>{
-  data.forEach((producto) => {
-
-    templeteCard.querySelector('img').setAttribute('src',producto.image)
-    templeteCard.querySelector('h4').textContent = producto.name;
-    templeteCard.querySelector('h5').textContent = `R$${producto.price}`;
-    templeteCard.querySelector('p').textContent = `ate ${producto.parcelamento[0]}X de R$ ${producto.parcelamento[1]}`;
-    templeteCard.querySelector('.button-card').dataset.id = producto.id;
-
-    const clone = templeteCard.cloneNode(true)
-    fragment.appendChild(clone)
-  })
-  items.appendChild(fragment)
-}
-
-let car = 0;
-const addProduct = event => {
-  //console.log(event.target) //detecta cualquier clik
-  //console.log(event.target.classList.contains('button-card')) //verdadero si preciosa boton
-
-  if (event.target.classList.contains('button-card')){
-    car += 1;
-    console.log(car)
-  }
-}
-
