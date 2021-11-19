@@ -1,6 +1,8 @@
 const path = require("path");
 
+
 module.exports = (paths) => ({
+  
   entry: {
     main: path.resolve(__dirname, paths.scripts.src),
   },
@@ -32,6 +34,19 @@ module.exports = (paths) => ({
           },
         },
       },
+      {
+        test: /\.css$/,
+        use:["style-loader","css-loader"]
+      },
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        use:{
+          loader:"file-loader",
+          options: {
+            name: '[name].[ext]',
+          }
+        }
+      }
     ],
   },
   resolve: {
