@@ -10,10 +10,40 @@
 </head>
 
 <body>
-
+<!-- 
   <h1>Desafio m3</h1>
   
-  <section id="cards-content" class="container"></section>
+  <section id="cards-content" class="container"></section> -->
+
+  <header class="">
+    <p id="Car">Este es el carrito de compras</p>
+  </header>
+  <div class="container">
+    
+      <div class="row" id="items"></div>
+  </div>
+
+
+
+  <template id="template-card">
+  
+    
+      <div class="card">
+
+        <div class="card-image">
+          <img class="img-fluid" src="${object.image}" alt="imagen de ${object.name}">
+        </div>
+
+        <div class="card-body">
+          <h4>Name</h4>
+          <h5>Precio</h5>
+          <p>rango</p>
+          <button  class="button-card" type="button" >Comprar</button>
+        </div>
+      </div>
+    
+  </template>
+
   
 
   <script src="bundle.js"></script> 
