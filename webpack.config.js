@@ -12,22 +12,29 @@ module.exports = (paths) => ({
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
-        include: path.resolve(__dirname, paths.scripts.src),
+        //include: path.resolve(__dirname, "./src/index.js"),
         use: {
           loader: "babel-loader",
           options: {
             presets: [
               [
-                "@babel/preset-env",
-                { targets: { browsers: ["last 2 versions"] } },
+                "@babel/preset-react",
+                { targets: { browsers: ["last 2 versions"] }},
               ],
+              [
+                "@babel/preset-typescript",
+                { targets: { browsers: ["last 2 versions"] }},
+              ]
             ],
             cacheDirectory: true,
           },
         },
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
 });
