@@ -9,7 +9,7 @@ let car = {};
 // -----------------  Peticion a la API-------------
 
 const URL = 'http://localhost:5000/products';
-  
+const times = 1
 const fetchData = fetch(URL)
     .then((res) => res.json())
     .then((data) => {
@@ -22,17 +22,23 @@ const fetchData = fetch(URL)
 // -----------------  Estructura card -------------  
 
 const pintarCards = (data) => {
+  
   data.forEach((producto) => {
     templeteCard.querySelector('img').setAttribute('src',producto.image);
     templeteCard.querySelector('h4').textContent = producto.name;
-    templeteCard.querySelector('h5').textContent = `R$${producto.price}`;
-    templeteCard.querySelector('p').textContent = `ate ${producto.parcelamento[0]}X de R$ ${producto.parcelamento[1]}`;
+    templeteCard.querySelector('h5').textContent = `R$ ${producto.price}`;
+    templeteCard.querySelector('p').textContent = `até ${producto.parcelamento[0]}X de R$ ${producto.parcelamento[1]}`;
     templeteCard.querySelector('.button-card').dataset.id = producto.id;
 
     const clone = templeteCard.cloneNode(true);
     fragment.appendChild(clone)
   })
   items.appendChild(fragment)
+
+  
+
+  
+
 }
 
 
@@ -68,10 +74,7 @@ const setCar = objeto => {
   if(car.hasOwnProperty(producto.id)) {
     producto.cantidad = car[producto.id].cantidad + 1;
   }
-
   car[producto.id] = {...producto}
-
-
 
    console.log(car)
  

@@ -5,34 +5,54 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+
   <title>Desenvolvedor M3</title>
   <link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
-<!-- 
-  <h1>Desafio m3</h1>
-  
-  <section id="cards-content" class="container"></section> -->
-
-  <div class="Carrito"></div>
 
 
+  <header>
+    <img class="header__logo" src="./img/logo-m3.png" alt="company logo">
+    <div class="header__car">
+      <span class="header__bag"></span>
+      <div class="header__number">1</div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="main__info">
+      <h2 class="main__title">Blusas</h2>
+
+     
+      <button type="button" class="main__buttons">Filtrar</button>
+      <button type="button" class="main__buttons">Ordenar</button>
+
+     
+    </div>
+ 
 
 
-  <div class="container">
     
-      <div class="row" id="items"></div>
-      <div class="carrito" id="carrito"></div>
-  </div>
+    <div class="container">
+      <div class="main__items" id="items"></div>
+   </div>
 
 
 
-  <template id="template-card">
-  
-    
+
+
+
+    <template id="template-card">
       <div class="card">
-
         <div class="card-image">
           <img class="img-fluid" src="" alt="">
         </div>
@@ -41,7 +61,7 @@
           <h4>Name</h4>
           <h5>Precio</h5>
           <p>rango</p>
-          <button  class="button-card" type="button" >Comprar</button>
+          <button  class="button-card" type="button" >COMPRAR</button>
         </div>
       </div>
     
@@ -49,23 +69,22 @@
 
 
 
-  <template id="template-carrito">
-    <tr>
-      <th scope="row">id</th>
-      <td>Café</td>
-      <td>1</td>
-      <td>
-          <button class="btn btn-info btn-sm">
-              +
-          </button>
-          <button class="btn btn-danger btn-sm">
-              -
-          </button>
-      </td>
-      <td>$ <span>500</span></td>
-    </tr>
-  </template>
+  </main>
+
+
+
+
+  <div class="container">
+      <div class="row" id="items"></div>
+  </div>
+
+
+
+
+
+
   
+
 
   <script src="bundle.js"></script> 
 </body>
