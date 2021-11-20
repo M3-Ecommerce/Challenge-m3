@@ -24,22 +24,80 @@ const fetchData = fetch(URL)
 const pintarCards = (data) => {
   
   data.forEach((producto) => {
-    templeteCard.querySelector('img').setAttribute('src',producto.image);
-    templeteCard.querySelector('h4').textContent = producto.name;
-    templeteCard.querySelector('h5').textContent = `R$ ${producto.price}`;
-    templeteCard.querySelector('p').textContent = `até ${producto.parcelamento[0]}X de R$ ${producto.parcelamento[1]}`;
-    templeteCard.querySelector('.button-card').dataset.id = producto.id;
 
-    const clone = templeteCard.cloneNode(true);
-    fragment.appendChild(clone)
+   
+      templeteCard.querySelector('img').setAttribute('src',producto.image);
+      templeteCard.querySelector('h4').textContent = producto.name;
+      templeteCard.querySelector('h5').textContent = `R$ ${producto.price}`;
+      templeteCard.querySelector('p').textContent = `até ${producto.parcelamento[0]}X de R$ ${producto.parcelamento[1]}`;
+      templeteCard.querySelector('.button-card').dataset.id = producto.id;
+
+      const clone = templeteCard.cloneNode(true);
+      fragment.appendChild(clone)
+
+  
   })
   items.appendChild(fragment)
 
-  
+}
 
-  
+
+
+
+
+/* var clic = 1;
+var LoadMore = document.getElementById("demo");
+
+var card = document.getElementById("card");
+var img = document.getElementById("fluid")
+var body = document.getElementById("body")
+var hito = document.getElementById("hito")
+var hfout = document.getElementById("hfout") 
+var pto = document.getElementById("pto")
+var button = document.getElementById("button-card")
+
+document.getElementById("demo").onclick = function() {myFunction()};
+
+function myFunction(){
+
+   if(clic==1){
+       //ocultar el menu
+       card.style.width = "0px";
+
+        //ocultar los elememtos en el menu
+        img.style.display = 'none';
+
+        body.style.display = 'none';
+        hito.style.display = 'none';
+        hfout.style.display = 'none';
+        pto.style.display = 'none';
+        button.style.display = 'none';
+        clic = clic + 1;
+   } else{
+        //mostar el menu
+
+        card.style.width = "350px";
+        
+        //ocultar los elememtos en el menu
+        img.style.display = 'block';
+
+        body.style.display = 'block';
+        h4.style.display = 'block';
+        h5.style.display = 'block';
+        p.style.display = 'block';
+        button.style.display = 'block';
+        clic = clic + 1;
+        
+        clic = 1;
+   }
 
 }
+ */
+
+
+
+
+
 
 
 

@@ -42,26 +42,29 @@
 
 
     
-    <div class="container">
+    <div class="container" id="container">
       <div class="main__items" id="items"></div>
+      
    </div>
 
+   <button type="button" class="main__LoadMore" id="demo">Cargar Mas</button>
 
 
+  
 
 
 
     <template id="template-card">
-      <div class="card">
-        <div class="card-image">
-          <img class="img-fluid" src="" alt="">
+      <div class="card" id="card">
+        <div class="card-image" id='card-image'>
+          <img class="img-fluid" id='fluid' src="" alt="">
         </div>
 
-        <div class="card-body">
-          <h4>Name</h4>
-          <h5>Precio</h5>
-          <p>rango</p>
-          <button  class="button-card" type="button" >COMPRAR</button>
+        <div class="card-body" id='body'>
+          <h4 id="hito">Name</h4>
+          <h5 id= "hfout">Precio</h5>
+          <p id="pto">rango</p>
+          <button  class="button-card" type="button" id="button-card">COMPRAR</button>
         </div>
       </div>
     
@@ -72,11 +75,6 @@
   </main>
 
 
-
-
-  <div class="container">
-      <div class="row" id="items"></div>
-  </div>
 
 
 
