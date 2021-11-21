@@ -2,8 +2,11 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div>
-            <h1>Footer</h1>
+        <div className="item4 footer">
+            <div className="footer">
+                <p className="tipographyfooter">M3: IMPLANTAÇÃO DE E-COMMERCE VTEX</p>
+            </div>
+            
         </div>
     )
 }

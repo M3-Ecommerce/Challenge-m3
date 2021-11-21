@@ -1,20 +1,80 @@
-* {
-  background-color: white;
+@font-face {
+  font-family: "MyFont";
+  src: url("https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff")
+    format("woff");
+  font-weight: 600;
+  font-style: normal;
 }
-.wrapper{
-    height: 100vh;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    padding-left: 10%;
+* {
+  //background-color: white;
+  font-family: "MyFont";
+  margin: 0%;
+}
+li {
+  height: 28px;
+}
+// padding-top
+.pt5 {
+  padding-top: 5px;
+}
+.pt10 {
+  padding-top: 10px;
+}
+.pt20 {
+  padding-top: 20px;
+}
+.pt30 {
+  padding-top: 30px;
+}
+.pt40 {
+  padding-top: 40px;
+}
+.pt50 {
+  padding-top: 50px;
+}
+.pt60 {
+  padding-top: 60px;
+}
+.pt70 {
+  padding-top: 70px;
+}
+.pt80 {
+  padding-top: 80px;
+}
+.pt90 {
+  padding-top: 90px;
+}
+.pt100 {
+  padding-top: 100px;
+}
+
+//Tamaño de letra
+
+.fs14 {
+  font-size: 14px;
+}
+.fs16 {
+  font-size: 16px;
+}
+
+[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label {
+  cursor: pointer;
+}
+.wrapper {
+  height: 100vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
 }
 .containerm3 {
   width: 100%;
 }
-.bodycontainerm3{
-    
-    width: 100%;
-    
+.bodycontainerm3 {
+  width: 100%;
 }
 .headerm3 {
   width: 100%;
@@ -45,8 +105,163 @@
   background: #c7c7c7;
 }
 .titlem3 {
-  font-family: Open Sans;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 32px;
+  // line-height: 44%;
+}
+.title16px {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22%;
+}
+.listm3 {
+  padding-inline: 0;
+  margin: 0;
+  list-style: none;
+}
+.itemlistm3 {
+  list-style: none;
+  padding-top: 5px;
+}
+label {
+  padding-left: 1.9em;
+  position: relative;
+  padding-top: 0;
+}
+label:before {
+  top: 2px;
+  content: "";
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  transition: all 0.2s;
+  transform: rotate(90deg);
+  padding: 0;
+}
+input:before {
+  top: 2px;
+  content: "";
+  border: solid 1px rgba(236, 1, 1, 0.3);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  transition: all 0.2s;
+  transform: rotate(90deg);
+}
+input[type="checkbox"]:checked + label:before {
+  top: 2px;
+  content: "";
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  transition: all 0.2s;
+  transform: rotate(180deg);
+}
+//Grid del cuerpo del documento
+.item1 {
+  grid-area: header;
+}
+.item2 {
+  grid-area: main;
+  padding-top: 50px;
+}
+.item3 {
+  grid-area: right;
+  padding-top: 50px;
+}
+.item4 {
+  grid-area: footer;
+}
+
+.grid-container {
+  margin: 0%;
+  display: grid;
+  grid:
+    "header header header header"
+    "main right right right"
+    "footer footer footer footer";
+  grid-gap: 3px;
+  padding: 3px;
+}
+
+.grid-container > div {
+  background-color: rgba(236, 1, 1, 0.3);
+  padding: 0;
+  font-size: 30px;
+  margin: 0;
+}
+//grid de los tamaños
+.sizep {
+  grid-area: P;
+}
+.sizem {
+  grid-area: M;
+}
+.sizeg {
+  grid-area: G;
+}
+.sizegg {
+  grid-area: GG;
+}
+.sizeexg {
+  grid-area: EXG;
+}
+.sizep {
+  grid-area: P;
+}
+.size36 {
+  grid-area: 36;
+}
+.size38 {
+  grid-area: 38;
+}
+.size40 {
+  grid-area: 40;
+}
+.size42 {
+  grid-area: 42;
+}
+.size44 {
+  grid-area: 44;
+}
+.size46 {
+  grid-area: 46;
+}
+.grid-sizes {
+  margin: 0%;
+  display: grid;
+  grid:
+    "P M G GG"
+    "EXG 36 38 40"
+    "42 44 46 ";
+  grid-gap: 3px;
+  padding: 3px;
+}
+.grid-sizes > div {
+  background-color: rgba(1, 24, 236, 0.3);
+  padding: 0;
+  font-size: 30px;
+  margin: 0;
+}
+.footer {
+  padding: 7px;
+  text-align: center;
+  background-color: black;
+  height: auto;
+  width: 100%;
+}
+.tipographyfooter {
+  color: white;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 19.07px;
+  margin: 5px;
 }

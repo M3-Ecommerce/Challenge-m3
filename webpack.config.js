@@ -46,7 +46,11 @@ module.exports = (paths) => ({
             name: '[name].[ext]',
           }
         }
-      }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   resolve: {
