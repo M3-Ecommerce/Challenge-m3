@@ -1,7 +1,7 @@
 @font-face {
   font-family: "MyFont";
-  src: url("https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff")
-    format("woff");
+  src: url("https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata");
+    //format("woff");
   font-weight: 600;
   font-style: normal;
 }
@@ -57,14 +57,24 @@ li {
 .pt100 {
   padding-top: 100px;
 }
+.pt150 {
+  padding-top: 150px;
+}
+.pt200 {
+  padding-top: 200px;
+}
+//padding-horizontal
 
-//Tamaño de letra
 
 .fs14 {
   font-size: 14px;
 }
 .fs16 {
   font-size: 16px;
+}
+
+.bold {
+font-weight: 900;
 }
 
 [type="checkbox"] {
@@ -179,6 +189,7 @@ input[type="checkbox"]:checked + label:before {
   grid-area: header;
 }
 .item2 {
+  width: 100%;
   grid-area: main;
   padding-top: 50px;
 }
@@ -194,9 +205,9 @@ input[type="checkbox"]:checked + label:before {
   margin: 0%;
   display: grid;
   grid:
-    "header header header header"
-    "main body body body"
-    "footer footer footer footer";
+    "header header header header header"
+    "main body body body body"
+    "footer footer footer footer footer";
   grid-gap: 3px;
   padding: 3px;
 }
@@ -269,7 +280,6 @@ input[type="checkbox"]:checked + label:before {
   height:32px;
 }
 .grid-sizes {
-  width: 50%;
   margin: 0%;
   display: grid;
   grid:
@@ -277,13 +287,23 @@ input[type="checkbox"]:checked + label:before {
     "EXG 36 38 40"
     "42 44 46 48";
   grid-gap: 3px;
-  padding: 3px;
 }
 .grid-sizes > div {
   border: solid 1px rgba(0, 0, 0, 0.5);
   padding: 0;
   font-size: 30px;
   margin: 0;
+}
+//grid catalogo
+.grid-catalogo {
+   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding-inline: 10%;
+  //grid-auto-rows: 100px 200px;
+}
+.data-card{
+  text-align: center;
 }
 .footer {
   padding: 7px;

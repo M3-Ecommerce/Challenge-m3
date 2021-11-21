@@ -24,10 +24,9 @@ const tallas = [
         <div className="grid-sizes ">
           {tallas.map((talla: string, index: number) => {
             return (
-              <div className={`size${talla} text-center content-center`}>
+              <div key={index} className={`size${talla} text-center content-center`}>
                 <p className="fs16">{talla.toUpperCase()}</p>
               </div>
-              //<p style={{fontSize:16}} className={`size${talla}`} key={index}>{talla}</p>
             );
           })}
         </div>
