@@ -16,7 +16,9 @@ function Card() {
         {arrayData?.map((item: any, index: number) => {
           return (
             <div className="data-card pb20 " key={index}>
-              <img src={`${item.image}`} />
+              <div className="img-contenedor">
+                <img src={`${item.image}`} />
+              </div>
               <p className="fs16">{item.name.toUpperCase()}</p>
               <p className="fs16 bold pt10">
                 R${" "}
