@@ -13,6 +13,16 @@
 li {
   height: 28px;
 }
+//centrar texto
+.text-center{
+  text-align: center;
+}
+//centrar contenigo
+.content-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 // padding-top
 .pt5 {
   padding-top: 5px;
@@ -194,58 +204,83 @@ input[type="checkbox"]:checked + label:before {
 .grid-container > div {
   background-color: rgba(236, 1, 1, 0.3);
   padding: 0;
-  font-size: 30px;
+  font-size: 16px;
   margin: 0;
 }
 //grid de los tamaños
 .sizep {
   grid-area: P;
+  width: 32px ;
+  height:32px;
 }
 .sizem {
   grid-area: M;
+  width: 32px ;
+  height:32px;
 }
 .sizeg {
   grid-area: G;
+  width: 32px ;
+  height:32px;
 }
 .sizegg {
   grid-area: GG;
+  width: 32px ;
+  height:32px;
 }
 .sizeexg {
   grid-area: EXG;
+  width: 32px ;
+  height:32px;
 }
-.sizep {
-  grid-area: P;
+.size34 {
+  grid-area: '34';
+  width: 32px ;
+  height:32px;
 }
 .size36 {
-  grid-area: 36;
+  grid-area: '36';
+  width: 32px ;
+  height:32px;
 }
 .size38 {
-  grid-area: 38;
+  grid-area: '38';
+  width: 32px ;
+  height:32px;
 }
 .size40 {
-  grid-area: 40;
+  grid-area: '40';
+  width: 32px ;
+  height:32px;
 }
 .size42 {
-  grid-area: 42;
+  grid-area: '42';
+  width: 32px ;
+  height:32px;
 }
 .size44 {
-  grid-area: 44;
+  grid-area: '44';
+  width: 32px ;
+  height:32px;
 }
 .size46 {
-  grid-area: 46;
+  grid-area: '46';
+  width: 32px ;
+  height:32px;
 }
 .grid-sizes {
+  width: 50%;
   margin: 0%;
   display: grid;
   grid:
     "P M G GG"
     "EXG 36 38 40"
-    "42 44 46 ";
+    "42 44 46 48";
   grid-gap: 3px;
   padding: 3px;
 }
 .grid-sizes > div {
-  background-color: rgba(1, 24, 236, 0.3);
+  border: solid 1px rgba(0, 0, 0, 0.5);
   padding: 0;
   font-size: 30px;
   margin: 0;
