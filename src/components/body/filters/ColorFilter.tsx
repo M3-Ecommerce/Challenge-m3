@@ -60,7 +60,7 @@ function ColorFilter() {
         style={{ cursor: "pointer" }}
         onClick={() => setSeeMore(!seeMore)}
       >
-        {seeMore ? "Ocultar ˄" : "Ver todas as cores ˅"}
+        {seeMore ? "" : "Ver todas as cores ˅"}
       </p>
     </section>
   );

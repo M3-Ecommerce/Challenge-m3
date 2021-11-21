@@ -21,6 +21,9 @@ const paths = {
   img: {
     src: "src/img/**/*",
   },
+  script: {
+    src: "src/components/body/catalogo/ScriptSelect.js"
+  },
   html: {
     src: "src/index.html",
   },
@@ -86,6 +89,11 @@ function img() {
   return src(paths.img.src).pipe(dest(paths.dest + "/img"));
 }
 
+function script() {
+  return src(paths.script.src).pipe(dest(paths.dest));
+}
+
+
 const build = series(clean, parallel(styles, scripts, html, img));
 const dev = () => {
   watch(paths.scripts.watch, { ignoreInitial: false }, scripts).on(
@@ -94,6 +102,7 @@ const dev = () => {
   );
   watch(paths.styles.src, { ignoreInitial: false }, styles);
   watch(paths.img.src, { ignoreInitial: false }, img);
+  watch(paths.script.src, { ignoreInitial: false }, script);
   watch(paths.html.src, { ignoreInitial: false }, html).on(
     "change",
     browserSync.reload
