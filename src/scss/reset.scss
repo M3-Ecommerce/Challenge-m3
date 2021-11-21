@@ -1,35 +1,47 @@
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-stretch: 100%;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
 
 :root {
-  --primary-color: #00C0EE;
-  --cinza1: rgba(0,0,0,0.5);
+  --primary-color: #00c0ee;
+  --cinza1: rgba(0, 0, 0, 0.5);
   --cinza2: #666666;
-  --preto: #000000
+  --preto: #000000;
+  --blanco: #fff
 }
 
 * {
   //background-color: white;
   font-family: "Open Sans";
   margin: 0%;
-  color: var(--preto) ;
+  color: var(--preto);
 }
 li {
   height: 28px;
 }
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
 //centrar texto
-.text-center{
+.text-center {
   text-align: center;
 }
 //centrar contenigo
-.content-center{
+.content-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,9 +86,26 @@ li {
 .pt200 {
   padding-top: 200px;
 }
-//padding-horizontal
+//padding-bottom
+.pb10{
+  padding-bottom: 10px;
+}
+.pb20{
+  padding-bottom: 20px;
+}
+.pb30{
+  padding-bottom: 30px;
+}
+.pb40{
+  padding-bottom: 40px;
+}
+.pb50{
+  padding-bottom: 50px;
+}
 
-
+.fs12{
+  font-size: 12px;
+}
 .fs14 {
   font-size: 14px;
 }
@@ -85,7 +114,7 @@ li {
 }
 
 .bold {
-font-weight: 900;
+  font-weight: 900;
 }
 
 [type="checkbox"] {
@@ -195,6 +224,14 @@ input[type="checkbox"]:checked + label:before {
   transition: all 0.2s;
   transform: rotate(180deg);
 }
+.buy-button {
+  width: 90%; 
+  height:34px; 
+  color:var(--blanco);
+  background-color: var(--preto);
+   font-weight:700;
+   font-size: 16px;
+}
 //Grid del cuerpo del documento
 .item1 {
   grid-area: header;
@@ -232,63 +269,63 @@ input[type="checkbox"]:checked + label:before {
 //grid de los tamaños
 .sizep {
   grid-area: P;
-  width: 32px ;
-  height:32px;
+  width: 32px;
+  height: 32px;
 }
 .sizem {
   grid-area: M;
-  width: 32px ;
-  height:32px;
+  width: 32px;
+  height: 32px;
 }
 .sizeg {
   grid-area: G;
-  width: 32px ;
-  height:32px;
+  width: 32px;
+  height: 32px;
 }
 .sizegg {
   grid-area: GG;
-  width: 32px ;
-  height:32px;
+  width: 32px;
+  height: 32px;
 }
 .sizeexg {
   grid-area: EXG;
-  width: 32px ;
-  height:32px;
+  width: 32px;
+  height: 32px;
 }
 .size34 {
-  grid-area: '34';
-  width: 32px ;
-  height:32px;
+  grid-area: "34";
+  width: 32px;
+  height: 32px;
 }
 .size36 {
-  grid-area: '36';
-  width: 32px ;
-  height:32px;
+  grid-area: "36";
+  width: 32px;
+  height: 32px;
 }
 .size38 {
-  grid-area: '38';
-  width: 32px ;
-  height:32px;
+  grid-area: "38";
+  width: 32px;
+  height: 32px;
 }
 .size40 {
-  grid-area: '40';
-  width: 32px ;
-  height:32px;
+  grid-area: "40";
+  width: 32px;
+  height: 32px;
 }
 .size42 {
-  grid-area: '42';
-  width: 32px ;
-  height:32px;
+  grid-area: "42";
+  width: 32px;
+  height: 32px;
 }
 .size44 {
-  grid-area: '44';
-  width: 32px ;
-  height:32px;
+  grid-area: "44";
+  width: 32px;
+  height: 32px;
 }
 .size46 {
-  grid-area: '46';
-  width: 32px ;
-  height:32px;
+  grid-area: "46";
+  width: 32px;
+  height: 32px;
 }
 .grid-sizes {
   margin: 0%;
@@ -307,13 +344,13 @@ input[type="checkbox"]:checked + label:before {
 }
 //grid catalogo
 .grid-catalogo {
-   display: grid;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   padding-inline: 10%;
   //grid-auto-rows: 100px 200px;
 }
-.data-card{
+.data-card {
   text-align: center;
 }
 .footer {
