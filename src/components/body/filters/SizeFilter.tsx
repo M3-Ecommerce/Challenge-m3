@@ -25,7 +25,7 @@ const tallas = [
           {tallas.map((talla: string, index: number) => {
             return (
               <div key={index} className={`size${talla} text-center content-center`}>
-                <p className="fs16">{talla.toUpperCase()}</p>
+                <p className="fs16">{talla.toUpperCase()}</p> 
               </div>
             );
           })}
