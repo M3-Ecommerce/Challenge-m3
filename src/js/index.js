@@ -8,7 +8,7 @@ let car = {};
 
 // -----------------  Peticion a la API-------------
 
-const URL = 'http://localhost:5000/products';
+const URL = 'http://localhost:5000/products/';
 const times = 1
 const fetchData = fetch(URL)
     .then((res) => res.json())
@@ -42,62 +42,19 @@ const pintarCards = (data) => {
 }
 
 
-
-
-
-/* var clic = 1;
-var LoadMore = document.getElementById("demo");
-
-var card = document.getElementById("card");
-var img = document.getElementById("fluid")
-var body = document.getElementById("body")
-var hito = document.getElementById("hito")
-var hfout = document.getElementById("hfout") 
-var pto = document.getElementById("pto")
-var button = document.getElementById("button-card")
-
 document.getElementById("demo").onclick = function() {myFunction()};
 
-function myFunction(){
-
-   if(clic==1){
-       //ocultar el menu
-       card.style.width = "0px";
-
-        //ocultar los elememtos en el menu
-        img.style.display = 'none';
-
-        body.style.display = 'none';
-        hito.style.display = 'none';
-        hfout.style.display = 'none';
-        pto.style.display = 'none';
-        button.style.display = 'none';
-        clic = clic + 1;
-   } else{
-        //mostar el menu
-
-        card.style.width = "350px";
-        
-        //ocultar los elememtos en el menu
-        img.style.display = 'block';
-
-        body.style.display = 'block';
-        h4.style.display = 'block';
-        h5.style.display = 'block';
-        p.style.display = 'block';
-        button.style.display = 'block';
-        clic = clic + 1;
-        
-        clic = 1;
-   }
-
-}
- */
+function myFunction() {
+  var x = document.getElementById('items');
 
 
+  if (x.style.display === 'none') {
+    x.style.display = 'flex';
+  } else {
+    x.style.display = 'none';
+  }
 
-
-
+} 
 
 
 
