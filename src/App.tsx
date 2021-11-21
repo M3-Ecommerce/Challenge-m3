@@ -1,4 +1,6 @@
 import React from "react";
+import Catalogo from "./components/body/Catalogo";
+import Filters from "./components/body/Filters";
 import Body from "./components/webparts/Body";
 import Footer from "./components/webparts/Footer";
 import Header from "./components/webparts/Header";
@@ -8,7 +10,7 @@ function App() {
     <div className="wrapper">
       <div className="grid-container">
         <Header />
-        <Body />
+        <Body/>
         <Footer />
       </div>
     </div>

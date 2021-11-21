@@ -183,7 +183,7 @@ input[type="checkbox"]:checked + label:before {
   padding-top: 50px;
 }
 .item3 {
-  grid-area: right;
+  grid-area: body;
   padding-top: 50px;
 }
 .item4 {
@@ -195,7 +195,7 @@ input[type="checkbox"]:checked + label:before {
   display: grid;
   grid:
     "header header header header"
-    "main right right right"
+    "main body body body"
     "footer footer footer footer";
   grid-gap: 3px;
   padding: 3px;

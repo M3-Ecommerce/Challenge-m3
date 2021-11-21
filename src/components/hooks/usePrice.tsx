@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function usePrice() {
+export const usePrice = () => {
     const [arrayPrices, setarrayPrices] = useState<any>(null)
     useEffect(() => {
       fetch("http://localhost:5000/products")
@@ -20,4 +20,3 @@ function usePrice() {
     return{arrayPrices}
 }
 
-export default usePrice
