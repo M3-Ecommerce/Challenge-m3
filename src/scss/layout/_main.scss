@@ -1,0 +1,15 @@
+.main {
+  margin-top: 24px;
+
+  &__layout {
+    @include wrapper;
+    display: grid;
+  }
+
+  &__title {
+    padding-bottom: 12px;
+    font-size: 2rem;
+    color: rgba(51, 51, 51, 1);
+    text-align: center;
+  }
+}

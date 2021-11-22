@@ -1,0 +1,37 @@
+.modal {
+  position: absolute;
+  pointer-events: none;
+  height: 100vh;
+  padding: 16px;
+  margin: auto;
+  background-color: $white;
+  transition: opacity 500ms;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+
+  &:target {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &__head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
+    color: $gray-two;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__close {
+    color: $gray-two;
+    text-align: center;
+    text-decoration: none;
+  }
+}
