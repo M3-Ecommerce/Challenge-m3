@@ -1,1 +1,3 @@
-console.log("Dev m3");
+import runApp from "./app";
+
+runApp();

@@ -1,0 +1,56 @@
+.product-list {
+  margin-top: 35px;
+  margin-bottom: 118px;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 25px;
+    row-gap: 18px;
+  }
+
+  .product {
+    max-width: 195px;
+    margin: auto;
+    text-align: center;
+
+    &__image {
+      max-width: 100%;
+      cursor: pointer;
+    }
+
+    &__name {
+      color: $black;
+      text-transform: uppercase;
+      padding: 8px 0;
+    }
+
+    &__details {
+      margin-bottom: 12px;
+    }
+
+    &__price {
+      display: block;
+      font-weight: bold;
+      line-height: 25px;
+    }
+
+    &__parcelamento {
+      color: $gray-one;
+    }
+
+    .button {
+      width: 100%;
+      padding: 7px 0;
+      border: none;
+      font-family: "Open Sans", sans-serif;
+      background-color: $black;
+      color: $white;
+      font-weight: bold;
+      font-size: 0.8rem;
+      border: 1px solid $black;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}
