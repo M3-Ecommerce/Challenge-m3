@@ -7,13 +7,29 @@
   overflow: hidden;
   outline: none;
 
+  @media screen and (min-width: 1024px) {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 5px 7px;
+    border: 1px solid $gray-two;
+  }
+
   &__option {
     margin: 20px 0;
     font-size: 1.5rem;
     cursor: pointer;
 
+    @media screen and (min-width: 1024px) {
+      font-size: 1rem;
+    }
+
     &:first-child {
       display: none;
+
+      @media screen and (min-width: 1024px) {
+        display: block;
+      }
     }
 
     &:nth-child(2) {

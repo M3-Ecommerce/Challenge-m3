@@ -16,11 +16,37 @@
     opacity: 1;
   }
 
+  @media screen and (min-width: 1024px) {
+    position: static;
+    pointer-events: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+  }
+
+  &--one {
+    @media screen and (min-width: 1024px) {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &--two {
+    @media screen and (min-width: 1024px) {
+      grid-row: 1 / 2;
+      grid-column: 3 / 4;
+    }
+  }
+
   &__head {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
 
   &__name {

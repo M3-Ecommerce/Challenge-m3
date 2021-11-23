@@ -18,12 +18,21 @@
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
 
   &__content {
     margin: 0;
     height: 0;
     overflow: hidden;
+
+    @media screen and (min-width: 1024px) {
+      height: auto;
+      overflow: visible;
+    }
   }
 
   &__input:checked ~ &__content {

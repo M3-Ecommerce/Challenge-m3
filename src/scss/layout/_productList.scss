@@ -2,11 +2,23 @@
   margin-top: 35px;
   margin-bottom: 118px;
 
+  @media screen and (min-width: 1024px) {
+    margin-top: 0;
+  }
+
   &__content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 25px;
     row-gap: 18px;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1024px) {
+      row-gap: 42px;
+    }
   }
 
   .product {
@@ -23,6 +35,10 @@
       color: $black;
       text-transform: uppercase;
       padding: 8px 0;
+
+      @media screen and (min-width: 1024px) {
+        line-height: 22px;
+      }
     }
 
     &__details {
@@ -51,6 +67,13 @@
       border: 1px solid $black;
       text-transform: uppercase;
       cursor: pointer;
+
+      @media screen and (min-width: 1200px) {
+        &:hover {
+          background-color: $white;
+          color: $black;
+        }
+      }
     }
   }
 }

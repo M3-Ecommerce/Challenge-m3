@@ -4,8 +4,13 @@
   position: relative;
   background-color: $black;
   color: $white;
+  font-size: 0.85rem;
   text-align: center;
   bottom: -32px;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1rem;
+  }
 
   &__description {
     margin: 0;
