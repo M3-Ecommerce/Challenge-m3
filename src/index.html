@@ -20,24 +20,228 @@
 
 
   <header>
-    <img class="header__logo" src="./img/logo-m3.png" alt="company logo">
-    <div class="header__car">
-      <span class="header__bag"></span>
+    <img class="header__logo" src="./img/logo-m3.png" alt="Company Logo">
+    <div>
+      <div class="header__bag"></div>
       <div class="header__number">1</div>
     </div>
+
+    <div id="conteo"></div>
   </header>
 
   <main>
+    
 
     <div class="main__info">
       <h2 class="main__title">Blusas</h2>
-
-     
-      <button type="button" class="main__buttons">Filtrar</button>
-      <button type="button" class="main__buttons">Ordenar</button>
-
-     
+      <button type="button" class="main__buttonsFilters" id="buttonFilter">Filtrar</button>
+      <button type="button" class="main__buttonsFilters" id="buttonOrder">Ordenar</button>
     </div>
+
+    <form name="myForm" id="modalForm">
+
+      <div class="modal__content"> 
+        <div class="modal__Filter">
+          <h2 class="modal__FilterTitle">FILTRAR</h2>
+          <span class="modal__FilterIcon" id="closeFilterIcon">X</span>
+
+        </div>
+        
+        <div class="menudesplegable">
+          <fieldset class="form__fieldset">
+
+            <div class="form__titles">
+              <legend class="form__id">CORES</legend> 
+              <span class="form__id--icon" id="form__id--icon">v</span>
+            </div>
+
+            <div id="form__colors--ocult" class="form__colors--ocult">
+              <input type="checkbox"  name="colors" id="colors" value="Amarelo"/><p class="form__colors">Amarelo</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Azul"/><p  class="form__colors">Azul</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Branco"/><p class="form__colors">Branco</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Cinza"/><p class="form__colors">Cinza</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Laranja"/><p class="form__colors">Laranja</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Verde"/><p class="form__colors">Verde</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Vermelho"/><p class="form__colors">Vermelho</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Preto"/><p class="form__colors">Preto</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Rosa"/><p class="form__colors">Rosa</p><br/>
+              <input type="checkbox"  name="colors" id="colors" value="Vinho"/><p class="form__colors">Vinho</p><br/>
+            </div>
+          
+          </fieldset>
+
+
+
+          <fieldset class="form__fieldset">
+            <div class="form__titles">
+              <legend class="form__id">TAMANHOS </legend> 
+              <span class="form__id--icon">v</span>
+            </div>
+
+            
+            
+            <div class="form__colors--ocult form__size"> <!-- class="form__size -->
+              
+              <article >
+                <input type="checkbox" value="P" name="size"/>
+                <div>
+                  <span>
+                    P
+                  </span>
+                </div>
+              </article>
+
+              <article >
+                <input type="checkbox" value="M" name="size"/>
+                <div>
+                  <span>
+                    M
+                  </span>
+                </div>
+              </article>
+
+              <article >
+                <input type="checkbox" value="G" name="size"/>
+                <div>
+                  <span>
+                    G
+                  </span>
+                </div>
+              </article>
+
+              <article >
+                <input type="checkbox" value="GG" name="size"/>
+                <div>
+                  <span>
+                    GG
+                  </span>
+                </div>
+              </article>
+
+
+              <article >
+                <input type="checkbox" value="U" name="size"/>
+                <div>
+                  <span>
+                    U
+                  </span>
+                </div>
+              </article>
+
+
+              <article >
+                <input type="checkbox" value="36" name="size"/>
+                <div>
+                  <span>
+                    36
+                  </span>
+                </div>
+              </article>
+
+
+              <article >
+                <input type="checkbox" value="38" name="size"/>
+                <div>
+                  <span>
+                    38
+                  </span>
+                </div>
+              </article>
+
+              <article >
+                <input type="checkbox" value="40" name="size"/>
+                <div>
+                  <span>
+                    40
+                  </span>
+                </div>
+              </article>
+
+
+              <article >
+                <input type="checkbox" value="36" name="size"/>
+                <div>
+                  <span>
+                    36
+                  </span>
+                </div>
+              </article>
+
+
+              <article >
+                <input type="checkbox" value="38" name="size"/>
+                <div>
+                  <span>
+                    38
+                  </span>
+                </div>
+              </article>
+
+              <article >
+                <input type="checkbox" value="40" name="size"/>
+                <div>
+                  <span>
+                    40
+                  </span>
+                </div>
+              </article>
+
+              
+            </div>
+
+          </fieldset>
+          
+
+          <fieldset class="form__fieldset">
+
+            <div class="form__titles">
+              <legend class="form__id">FAIXA DE PROCO</legend>
+              <span class="form__id--icon">v</span>
+            </div>
+            
+            <div class="form__colors--ocult">
+              <input type="checkbox"  name="price" id="range" value="1"/><p class="form__ranges">de R$0 até R$50</p><br/>
+              <input type="checkbox"  name="price" id="range" value="2"/><p class="form__ranges">de R$51 até R$150</p><br/>
+              <input type="checkbox"  name="price" id="range" value="3"/><p class="form__ranges">de R$151 até R$300</p><br/>
+              <input type="checkbox"  name="price" id="range" value="4"/><p class="form__ranges">de R$301 até R$500</p><br/>
+              <input type="checkbox"  name="price" id="range" value="5"/><p class="form__ranges">apartir de R$500</p><br/>
+
+              <section class="buttonsForm">
+                <button type="button" id="buttonFormSend">APLICAR</button>
+                <button type="button" id="buttonFormClear" class="close">LIMPIAR</button>
+              </section>
+            </div>
+          </fieldset>
+        </div>
+
+        
+  
+      </div> 
+    </form>
+
+
+    <section id="modalOrder">
+
+      <div class="modal__Filter">
+        <h2 class="modal__FilterTitle">ORDENAR</h2>
+        <span class="modal__FilterIcon" id="closeORDERIcon">X</span>
+        
+      </div>
+
+      <section>
+        <p >Mais recente</p>
+        <p  id="mayorPrecio">Maior preco</p>
+        <p id="menorPrecio">Menor preco</p>
+      </section>
+
+      
+    </section>
+
+
+
+
+
+
  
 
 
@@ -46,21 +250,21 @@
       <div class="main__items" id="items"></div> 
    </div>
 
-   <button type="button" class="main__LoadMore" id="demo">Cargar Mas</button>
+   <!-- <button type="button" class="main__LoadMore" id="demo">Cargar Mas</button> -->
 
 
 
 
-    <template id="template-card">
+    <template id="template__card">
       <div class="card" id="card">
         <div class="card-image" id='card-image'>
-          <img class="img-fluid" id='fluid' src="" alt="">
+          <img class="img-fluid"  id='fluid' src="" alt="">
         </div>
 
         <div class="card-body" id='body'>
-          <h4 id="hito">Name</h4>
-          <h5 id= "hfout">Precio</h5>
-          <p id="pto">rango</p>
+          <h4 >Name</h4>
+          <h5 >Precio</h5>
+          <p >rango</p>
           <button  class="button-card" type="button" id="button-card">COMPRAR</button>
         </div>
       </div>
@@ -83,6 +287,9 @@
 
   <script src="bundle.js"></script> 
 </body>
+
+
+
 
 
 </html>

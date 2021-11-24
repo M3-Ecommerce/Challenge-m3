@@ -1,5 +1,5 @@
 const items = document.getElementById('items');
-const templeteCard = document.getElementById('template-card').content; //acceder elementos
+const templeteCard = document.getElementById('template__card').content; //acceder elementos
 
 const fragment = document.createDocumentFragment();
 const cardsContent = document.getElementById('cards-content');
@@ -29,7 +29,7 @@ const pintarCards = (data) => {
       templeteCard.querySelector('img').setAttribute('src',producto.image);
       templeteCard.querySelector('h4').textContent = producto.name;
       templeteCard.querySelector('h5').textContent = `R$ ${producto.price}`;
-      templeteCard.querySelector('p').textContent = `até ${producto.parcelamento[0]}X de R$ ${producto.parcelamento[1]}`;
+      templeteCard.querySelector('p').textContent = `até ${producto.parcelamento[0]}x de R$ ${producto.parcelamento[1]}`;
       templeteCard.querySelector('.button-card').dataset.id = producto.id;
 
       const clone = templeteCard.cloneNode(true);
@@ -42,7 +42,7 @@ const pintarCards = (data) => {
 }
 
 
-document.getElementById("demo").onclick = function() {myFunction()};
+/* document.getElementById("demo").onclick = function() {myFunction()};
 
 function myFunction() {
   var x = document.getElementById('items');
@@ -56,7 +56,7 @@ function myFunction() {
 
 } 
 
-
+ */
 
 
 
@@ -78,7 +78,7 @@ const addProduct = event => {
 }
 
 
-const setCar = objeto => {
+ const setCar = objeto => {
   const producto = {
     id: objeto.querySelector('.button-card').dataset.id,
     name :objeto.querySelector('h4').textContent,
@@ -92,11 +92,40 @@ const setCar = objeto => {
   car[producto.id] = {...producto}
 
    console.log(car)
+   
+
+   const id = document.getElementById('conteo');
+   
+  for (let propiedad in car){
+
+    id.innerHTML=`<p>${(car[propiedad].cantidad)}  con ${(car[propiedad].name)} </p>`
+
+  }
+ }
  
-//let valor = document.getElementById('carrito');
-//console.log(Object.keys(car).length)
-//valor.innerHTML =car[2].cantidad; 
-} 
+
+
+
+
+/* //--numero pantalla carrito// --
+const obj = {2:{id: '2', name: 'Saia em couro', price: 'R$ 398', cantidad: 2},
+3:{id: '3', name: 'Cardigan Tigre', price: 'R$ 398.8', cantidad: 1}}
+
+
+const id = getElementById("conteo")
+
+for (let propiedad in obj){
+
+  /* console.log(obj[propiedad])
+
+  console.log(obj[propiedad].cantidad) */
+
+  /* console.log(obj[propiedad].cantidad)
+  console.log(obj[propiedad].name) 
+
+  id.innerHTML=`<p>${(obj[propiedad].cantidad)}  con ${(obj[propiedad].name)} </p>`
+
+} */
 
 
 
@@ -104,28 +133,279 @@ const setCar = objeto => {
 
 
 
+//       ------   formularios
+
+document.getElementById("buttonFormSend").onclick = function() {validateForm()};
+
+const validateForm =()=> {
+  modal.style.display = "none";
+  let form = document.forms["myForm"]
+
+  let colors2 = document.getElementsByName("colors");
+  const price = document.getElementsByName("price");
+  const size =  document.getElementsByName("size");
+
+ /*  const talla = Array.prototype.slice.call(document.getElementsByName("talla"));  
+  console.log(talla) */
+
+
+  const listPrice = []
+  var listacolores = []
+  var listatallas = []
+
+
+  for (let i = 0; i < colors2.length; i++){
+    const element = colors2[i];
+    
+    if(element.checked){
+      
+      listacolores.push(element.value)
+      console.log(listacolores)
+
+    }
+  }
+
+  for (let i = 0; i < price.length; i++){
+    const element = price[i];
+    
+    if(element.checked){
+
+      if(element.value == "1") {
+        listPrice.push("0", "50");
+      } else if (element.value == "2") {
+        listPrice.push("51", "150");
+      } else if (element.value == "3") {
+        listPrice.push("151", "300");
+      }else if (element.value == "4") {
+        listPrice.push("301", "500");
+      }else {
+        listPrice.push("501", "1000");
+      }
+      
+       console.log(listPrice) 
+
+    }
+  }
+
+
+  for (let i = 0; i < size.length; i++){
+    const element = size[i];
+    
+    if(element.checked){
+      
+      listatallas.push(element.value)
+      console.log(listatallas)
+
+    }
+  }
+  const urelaapinueva= (url(listacolores,listPrice, listatallas ));
+  console.log(urelaapinueva)
+  repaintCards(urelaapinueva)
+}
+
+
+
+function repaintCards(url) {
+  console.log(items.children.length)
+  removeAllChildNodes(items)
+  const fetchData2 = fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      pintarCards(data)
+    })
+}
+
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+ 
 
 
 
 
 
+function url(colors,range,size){
+  principal = 'http://localhost:5000/products?';
+
+
+  
+  
+  const addCategory = (url, categoryList, categoryFilter) => {
+    
+  
+    for (let i = 0; i < categoryList.length; i++){
+      
+      if((url.slice(-1) == "?")){
+        url =`${url}${categoryFilter}=${categoryList[i]}`;
+  
+      } else {
+        url = `${url}&${categoryFilter}=${categoryList[i]}`;
+      }
+    }
+  
+    return url;
+  }
+  
+  
+  urlTwo= addCategory(principal,colors,"color");
+  
+  console.log(typeof(urlTwo))
+  urlThree= addCategory(urlTwo,size,"size_like"); 
+  
+  
+  
+  const addRange = (url, categoryList, categoryFilter) => {
+    
+  
+    for (let i = 0; i < categoryList.length; i=i+2){
+      
+      if((url.slice(-1) == "?")){
+        url =`${url}${categoryFilter}_gte=${categoryList[i]}&${categoryFilter}_lte=${categoryList[i+1]}`;
+  
+      } else {
+        url = `${url}&${categoryFilter}_gte=${categoryList[i]}&${categoryFilter}_lte=${categoryList[i+1]}`;
+      }
+    }
+  
+    return url;
+  }
+  
+  urlFour=  addRange(urlThree,range,"price")
+  
+  return urlFour;
+
+
+}
 
 
 
 
 
+//---------------- Modal------------------------------------------------
+
+
+
+const modal = document.getElementById("modalForm");
+
+
+const buttonFiltern = document.getElementById("buttonFilter");
+
+
+const buttonFormClear = document.getElementById("buttonFormClear");
+
+
+buttonFiltern.onclick = function() {
+  modal.style.display = "flex";
+}
+
+buttonFormClear.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+document.getElementById("closeFilterIcon").onclick = function() {
+  modal.style.display = "none";
+};
 
 
 
 
+//-------
+//---------------- Modal  order------------------------------------------------
+
+var order = document.getElementById("modalOrder");
+var orderboton = document.getElementById("buttonOrder");
+
+var closeORDERIcon = document.getElementById("closeORDERIcon");
+
+
+orderboton.onclick = function() {
+  order.style.display = "block";
+ 
+}
+
+closeORDERIcon.onclick = function() {
+  order.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == order) {
+    order.style.display = "none";
+  }
+}
+ 
+
+//----------------------- MENU DESPLEGABLE--------------------
+
+
+const opcion = document.querySelectorAll('.form__titles');
+
+// Permite recorrer cada una de nuestras opciones
+opcion.forEach(e => {
+
+  // Añadimos un evento a cada elemento seleccionado
+  e.addEventListener('click', function(e){
+
+      // Alteranmos las clases de nuestros enlaces
+      const padre = e.target.parentNode;
+      padre.children[1].classList.toggle('animation');
+      padre.parentNode.children[1].classList.toggle('animation');
+  });
+
+
+});
 
 
 
+//-------------- mayor y menor precio
+
+
+var mayorPrecio = document.getElementById("mayorPrecio");
+
+
+mayorPrecio.onclick = function() {
+  repaintCards('http://localhost:5000/products?_sort=price&_order=desc')
+  order.style.display = "none";
+}
+
+var menorPrecio = document.getElementById("menorPrecio");
+
+
+menorPrecio.onclick = function() {
+  repaintCards('http://localhost:5000/products?_sort=price&_order=ascc')
+  order.style.display = "none";
+}
 
 
 
+/* 
+for (let i = 0; i < menuDesplegable.length; i++){
+  menuDesplegable[i].addEventListener("click", function(){
+    if(window.innerWidth < 1024){
 
+      const subMenu = this.nextElementSibling;
+      const height = subMenu.scrollHeight;
 
+      subMenu.classList.add("desplegar");
+      subMenu.style.height = height + "px";
+
+    }
+  });
+}
+
+menuDesplegabl */
 
 
 
@@ -169,3 +449,30 @@ const fetchData = fetch(URL)
    
   })
   .catch((err) => console.log(err)); */
+
+
+
+
+  /*unction url(listacolores,listPrice, listatallas) {
+
+  var total = 'http://localhost:5000/products?';
+
+  for (i=0; i<listacolores.length; i++){
+    total =`${total}&color=${listacolores[i]}`
+  }
+  
+  console.log(total);
+
+  for (i=0; i<listPrice.length; i=i+2){
+    total =`${total}&price_gte=${listPrice[i]}&price_lte=${listPrice[i+1]}`
+  }
+  console.log(total);
+
+
+  for (i=0; i<listatallas.length; i++){
+    total =`${total}&size_like=${listatallas[i]}`
+  }
+
+  console.log(total);
+
+}*/ 
