@@ -2,10 +2,16 @@ import React from "react";
 import Card from "./catalogo/Card";
 import Select from "./catalogo/Select";
 
-function Catalogo() {
+function Catalogo(props: any) {
+  const { arrayData} = props
+
   return (
-      <>
-    <Card/>
+    <>
+    <div className="item3 ">
+        <Select />
+       <Card arrayData={arrayData} />
+    </div>
+     
     </>
   );
 }

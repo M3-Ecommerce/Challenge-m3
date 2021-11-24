@@ -28,7 +28,7 @@ function PriceFilter() {
                       value="first_checkbox"
                     />
                     <label
-                      className="listitem3 fs14  "
+                      className="listitem3 fs14 labelm3 "
                       htmlFor={`cbox${rango.max}`}
                     >
                       {" "}
@@ -43,7 +43,7 @@ function PriceFilter() {
                       value="first_checkbox"
                     />
                     <label
-                      className="listitem3 fs14  "
+                      className="listitem3 fs14 labelm3 "
                       htmlFor={`cbox${rango.max}`}
                     >
                       {" "}

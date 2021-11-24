@@ -197,9 +197,11 @@ button {
 [type="checkbox"] {
   display: none;
 }
-input[type="checkbox"] + label {
-  cursor: pointer;
-}
+// input[type="checkbox"] + .labelm3 {
+//   cursor: pointer;
+// }
+
+
 .wrapper {
   height: 100vh;
   width: 80%;
@@ -262,12 +264,22 @@ input[type="checkbox"] + label {
   list-style: none;
   padding-top: 5px;
 }
-label {
+.labelm3 {
   padding-left: 1.9em;
   position: relative;
   padding-top: 0;
 }
-label:before {
+.labelsize {
+  position: relative;
+  padding-top: 0;
+  color: var(--cinza2);
+  width: 33px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.labelm3:before {
   top: 2px;
   content: "";
   border: solid 1px var(--cinza1);
@@ -275,22 +287,28 @@ label:before {
   height: 16px;
   position: absolute;
   left: 0px;
-  transition: all 0.2s;
-  transform: rotate(90deg);
   padding: 0;
+}
+.labelsize:before {
+  top: 2px;
+  content: "";
+  border: solid 1px var(--cinza1);
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 0px;
+  padding: 0;
+  color: #000000;
 }
 input:before {
   top: 2px;
   content: "";
-  border: solid 1px rgba(236, 1, 1, 0.3);
   width: 16px;
   height: 16px;
   position: absolute;
   left: 0px;
-  transition: all 0.2s;
-  transform: rotate(90deg);
 }
-input[type="checkbox"]:checked + label:before {
+input[type="checkbox"]:checked + .labelm3:before {
   top: 2px;
   content: "";
   border: solid 1px var(--cinza1);
@@ -298,8 +316,28 @@ input[type="checkbox"]:checked + label:before {
   height: 16px;
   position: absolute;
   left: 0px;
-  transition: all 0.2s;
-  transform: rotate(180deg);
+}
+input[type="checkbox"]:checked + .labelm3:after {
+  top: 6px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: 4px;
+  background-color: var(--primary-color);
+}
+input[type="checkbox"]:checked + .labelsize:before {
+  top: 2px;
+  content: "";
+  border: solid 1px var(--primary-color);
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 0px;
+  color: var(--preto);
+}
+input[type="checkbox"]:checked + .labelsize {
+ color: var(--preto);
 }
 .buy-button {
   width: 90%;
@@ -410,10 +448,9 @@ input[type="checkbox"]:checked + label:before {
     "P M G GG"
     "EXG 36 38 40"
     "42 44 46 48";
-  grid-gap: 3px;
+  grid-gap: 6px;
 }
 .grid-sizes > div {
-  border: solid 1px var(--preto);
   padding: 0;
   font-size: 30px;
   margin: 0;
@@ -453,4 +490,12 @@ input[type="checkbox"]:checked + label:before {
   font-size: 14px;
   line-height: 19.07px;
   margin: 5px;
+}
+
+
+//.checker::before + 
+
+
+ div input[type="checkbox"] + label {
+  cursor: pointer;
 }

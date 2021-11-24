@@ -1,19 +1,35 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 
-function Select() {
-  const options = ["Mas recentes", "Menor preço", "Maior preço"]
+function Select(props: any) {
+  const { setSort } = props;
+  const options = ["Mas recentes", "Menor preço", "Maior preço"];
+  const [user, setUser] = useState<any>();
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    console.log(e);
+    setSort(e);
+  };
+  const handlerInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    console.log(e);
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
   return (
-    <div style={{width:150}} className=" custom-select content-right" >
-      <select className=" fs16">
-        <option value="0">Ordenar por:</option>
-        {
-          options.map((option:string, index:number)=>{
-            return(
-              <option  value={index+1}>{option}</option>
-            )
-          })
-        }
-      </select>
+    <div className="select-right">
+      <div style={{ width: 150 }} className=" custom-select content-right">
+        <select className=" fs16" onChange={handlerInputChange} name="sort">
+          <option value={0}>Ordenar por:</option>
+          {options.map((option: string, index: number) => {
+            return (
+              <option key={index} value={index + 1}>
+                {option}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     </div>
   );
 }

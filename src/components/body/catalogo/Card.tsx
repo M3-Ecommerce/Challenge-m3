@@ -2,16 +2,10 @@ import React from "react";
 import { useDataCard } from "../../hooks/useDataCard";
 import Select from "./Select";
 
-function Card() {
-  const { arrayData } = useDataCard();
-  console.log(arrayData);
-  return (
-    <div className="item3 ">
-      <div className="select-right">
-        <Select />
-      </div>
+function Card(props:any) {
+  const {arrayData} = props
 
-      
+  return ( 
       <div className="grid-catalogo">
         {arrayData?.map((item: any, index: number) => {
           return (
@@ -35,7 +29,6 @@ function Card() {
           );
         })}
       </div>
-    </div>
   );
 }
 

@@ -24,8 +24,9 @@ const tallas = [
         <div className="grid-sizes ">
           {tallas.map((talla: string, index: number) => {
             return (
-              <div key={index} className={`size${talla} text-center content-center`}>
-                <p className="fs16">{talla.toUpperCase()} </p> 
+              <div key={index} className={`size${talla} text-center content-center checker`}>
+                <input  type="checkbox" name="" id={`checkb${index}`} />
+                <label htmlFor={`checkb${index}`} className="fs16 labelsize">{talla.toUpperCase()} </label> 
               </div>
             );
           })}
