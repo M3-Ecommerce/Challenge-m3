@@ -1,11 +1,11 @@
 const setSelectState = () => {
   const selectElementQuery = matchMedia("(min-width: 1024px)");
-  const $priceRanges = document.getElementById("priceRanges");
+  const $filterSelect = document.getElementById("filterSelect");
 
   if (selectElementQuery.matches) {
-    $priceRanges.multiple = false;
+    $filterSelect.multiple = false;
   } else {
-    $priceRanges.multiple = true;
+    $filterSelect.multiple = true;
   }
 };
 

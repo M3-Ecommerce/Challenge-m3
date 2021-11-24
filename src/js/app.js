@@ -1,8 +1,10 @@
-import ProductList from "./classes/ProductList";
+import { ProductList } from "./classes";
 
-import setSelectState from "./functions/setSelectState";
+import { filterSelectActions, setSelectState } from "./functions";
 
 const productList = new ProductList();
+
+const $filterSelect = document.getElementById("filterSelect");
 
 const runApp = () => {
   window.addEventListener("resize", setSelectState);
@@ -10,6 +12,10 @@ const runApp = () => {
   window.addEventListener("DOMContentLoaded", () => {
     setSelectState();
     productList.loadProducts();
+  });
+
+  $filterSelect.addEventListener("change", (e) => {
+    filterSelectActions(e, productList.productList);
   });
 };
 

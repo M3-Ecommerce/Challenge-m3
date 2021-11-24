@@ -1,7 +1,7 @@
 class ProductList {
-  constructor() {
+  constructor(productList = []) {
     this.apiUrl = "http://localhost:5000/products";
-    this.productList = [];
+    this.productList = productList;
     this.$productListContent = document.getElementById("productListContent");
   }
 
