@@ -1,11 +1,18 @@
+import getScreenSize from "../getScreenSize";
 import filterProductsActions from "../product/filterProductsActions";
 
 const accordionListenerByScreenSize = (productList) => {
-  const accordionElementQuery = matchMedia("(min-width: 1024px)");
-  const $accordion = document.getElementById("accordion");
+  const isDesktopScreenSize = getScreenSize();
 
-  if (accordionElementQuery.matches) {
+  const $accordion = document.getElementById("accordion");
+  const $accordionButtons = document.getElementById("accordionButtons");
+
+  if (isDesktopScreenSize) {
     $accordion.addEventListener("click", (e) => {
+      filterProductsActions(e, productList.productList);
+    });
+  } else {
+    $accordionButtons.addEventListener("click", (e) => {
       filterProductsActions(e, productList.productList);
     });
   }

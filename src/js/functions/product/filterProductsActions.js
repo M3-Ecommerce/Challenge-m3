@@ -1,5 +1,6 @@
 import { ProductFilter } from "../../classes";
 
+import getScreenSize from "../getScreenSize";
 import inputValids from "./inputValids";
 import modalAction from "../modalAction";
 
@@ -7,18 +8,24 @@ const filterProductsActions = (e, productList) => {
   const productFilter = new ProductFilter(productList);
   const element = e.target;
 
+  const isDesktopScreenSize = getScreenSize();
+
   const isButtonApply = element.dataset.button === "apply";
   const isButtonReset = element.dataset.button === "reset";
 
-  if (isButtonApply || inputValids(element)) {
+  if (isDesktopScreenSize && inputValids(element)) {
     productFilter.applyFilters();
+  }
+
+  if (!isDesktopScreenSize && isButtonApply) {
+    productFilter.applyFilters();
+    modalAction();
   }
 
   if (isButtonReset) {
     productFilter.cleanFilters();
+    modalAction();
   }
-
-  modalAction();
 };
 
 export default filterProductsActions;

@@ -5,10 +5,8 @@ import {
   accordionListenerByScreenSize,
   filterSelectActions,
   buttonSizeActions,
-  filterProductsActions,
   addProductToCart,
   toggleOpenCart,
-  shoppingCartActions,
   showMoreProducts,
 } from "./functions";
 
@@ -17,7 +15,6 @@ const shoppingCart = new ShoppingCart();
 
 const $filterSelect = document.getElementById("filterSelect");
 const $sizeFilter = document.getElementById("sizeFilter");
-const $accordionButtons = document.getElementById("accordionButtons");
 const $btnShowMore = document.getElementById("btnShowMore");
 const $cart = document.getElementById("cart");
 const $productListContent = document.getElementById("productListContent");
@@ -39,10 +36,6 @@ const runApp = () => {
   });
 
   $sizeFilter.addEventListener("click", buttonSizeActions);
-
-  $accordionButtons.addEventListener("click", (e) => {
-    filterProductsActions(e, productList.productList);
-  });
 
   $cart.addEventListener("click", (e) => {
     toggleOpenCart(e, shoppingCart);
