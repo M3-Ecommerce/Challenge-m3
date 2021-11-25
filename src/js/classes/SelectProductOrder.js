@@ -1,11 +1,11 @@
 import ProductList from "./ProductList";
 
-class SelectProductFilter extends ProductList {
+class SelectProductOrder extends ProductList {
   constructor(productList) {
     super(productList);
   }
 
-  filterProductsByMostRecent() {
+  orderProductsByMostRecent() {
     const products = this.productList.map((product) => ({
       ...product,
       date: new Date(product.date),
@@ -20,7 +20,7 @@ class SelectProductFilter extends ProductList {
     this.renderProducts(organizedProducts);
   }
 
-  filterProductsByHigherPrice() {
+  orderProductsByHigherPrice() {
     const products = [...this.productList];
 
     const organizedProducts = products
@@ -32,7 +32,7 @@ class SelectProductFilter extends ProductList {
     this.renderProducts(organizedProducts);
   }
 
-  filterProductsByLowestPrice() {
+  orderProductsByLowestPrice() {
     const products = [...this.productList];
 
     const organizedProducts = products.sort((productOne, productTwo) => {
@@ -43,4 +43,4 @@ class SelectProductFilter extends ProductList {
   }
 }
 
-export default SelectProductFilter;
+export default SelectProductOrder;

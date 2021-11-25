@@ -1,27 +1,27 @@
-import { SelectProductFilter } from "../../classes";
+import { SelectProductOrder } from "../../classes";
 
 import modalAction from "../others/modalAction";
 
 const filterSelectActions = (e, productList) => {
-  const selectProductFilter = new SelectProductFilter(productList);
+  const selectProductOrder = new SelectProductOrder(productList);
   const $btnShowMore = document.getElementById("btnShowMore");
   const filterValue = e.target.value;
 
   switch (filterValue) {
     case "Mas recentes":
-      selectProductFilter.filterProductsByMostRecent();
+      selectProductOrder.orderProductsByMostRecent();
       break;
 
     case "Maior preco":
-      selectProductFilter.filterProductsByHigherPrice();
+      selectProductOrder.orderProductsByHigherPrice();
       break;
 
     case "Menor preco":
-      selectProductFilter.filterProductsByLowestPrice();
+      selectProductOrder.orderProductsByLowestPrice();
       break;
 
     default:
-      selectProductFilter.renderProducts(productList);
+      selectProductOrder.renderProducts(productList);
       $btnShowMore.classList.remove("delete");
       break;
   }

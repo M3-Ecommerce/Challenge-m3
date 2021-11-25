@@ -1,6 +1,6 @@
 import ProductList from "./ProductList";
-import SelectProductFilter from "./SelectProductFilter";
+import SelectProductOrder from "./SelectProductOrder";
 import ProductFilter from "./ProductFilter";
 import ShoppingCart from "./ShoppingCart";
 
-export { ProductList, SelectProductFilter, ProductFilter, ShoppingCart };
+export { ProductList, SelectProductOrder, ProductFilter, ShoppingCart };
