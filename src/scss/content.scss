@@ -1,23 +1,17 @@
 @import "variables";
 
-h1 {
-  font-size: $font-size-3;
-  padding: $spacer-3 0;
-}
-
-h2 {
-  font-size: $font-size-1;
-  text-transform: uppercase;
-  padding-bottom: $spacer-3;
-}
 .title {
   text-align: center;
 }
-
-button {
-  font-family: $font;
+.container {
+  padding: 0 $spacer-3;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
-
+#content {
+  min-height: 93vh;
+}
 #actions {
   padding: 0 $spacer-3;
   padding-bottom: $spacer-4;
@@ -40,6 +34,7 @@ button {
   padding: $spacer-3;
   margin: 0 -1px 0 0;
 }
+
 .btn-primary {
   border: none;
   color: $white;
@@ -49,6 +44,17 @@ button {
   width: 25%;
   font-weight: $font-weight-bold;
 }
+
+.btn-secondary {
+  color: $white;
+  background-color: $black;
+  border: none;
+  text-transform: uppercase;
+  width: 100%;
+  font-weight: $font-weight-heavy;
+  cursor: pointer;
+}
+
 #desktop-filters {
   display: none;
 }
@@ -105,6 +111,20 @@ button {
   background-color: $gray-3;
 }
 
+.filter-dropdown {
+  height: 0;
+  width: 100%;
+  background-color: $white;
+  overflow-x: hidden;
+  color: $black;
+}
+
+.collapsible-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @media only screen and (min-width: 768px) {
   #desktop-filters {
     display: block;
@@ -128,22 +148,4 @@ button {
     position: relative;
     display: inline-block;
   }
-}
-
-.filter-dropdown {
-  height: 0;
-  width: 100%;
-  background-color: $white;
-  overflow-x: hidden;
-  color: $black;
-}
-
-.collapsible-filter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#content {
-  min-height: 92vh;
 }
