@@ -9,11 +9,11 @@ Instalación
 npm install
 ```
 
-Ejecutar codigo
+Ejecutar código
 
 ```bash
 npm start
 ```
 
-Informacion de contantacto:
+Información de contacto:
 chazarreta.matias.1138@gmail.com
