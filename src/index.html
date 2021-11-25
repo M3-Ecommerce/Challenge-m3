@@ -1,19 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Desenvolvedor M3</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor M3</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
+  <body>
+    <div class="container">
+      <header style="border-bottom: 2px solid rgba(0, 0, 0, 0.5)">
+        <div id="header-nav" style="margin: 1rem 0 1rem 0">
+          <img id="logo-m3" src="./img/logo-m3.png" />
+          <div class="dropdown-cart">
+            <button type="button" class="dropbtn" id="dropbtn" >
+              <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect x="0.25" width="17" height="20" fill="url(#pattern0)"/>
+                <defs>
+                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_17_713" transform="scale(0.0588235 0.05)"/>
+                </pattern>
+                <image id="image0_17_713" width="17" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAUCAYAAABroNZJAAAAvElEQVQ4Ea2TAQ0CMQxFnwQkIAUJSMAJOAAJOAAH4ORwAA4gb1lJLnAH6faTpXdt/9+6/MF3LIAtcAauNfpv/i8sK+kAnIBLjfuat/4T7uzaAUEwKhq1WZE1cAc2E13mH4B9k3B372EO1u37gDt4cTG/31Mr7sn66MTO+kwseW9kBILTT0QDhWomFgOuGkXk00VE42TGCE4xnsaJRCYW43UROTaexIdZXmZmjOAU12YtPxK5NY4zOE4opuMLN/z2esJif9wAAAAASUVORK5CYII="/>
+                </defs>
+              </svg>
+              <span id="badge" >0</span>
+            </button>
+            <div id="shoppingDropdown" class="dropdown-content">
+            </div>
+          </div>
+        </div>
+      </header>
 
-<body>
+      <div class="content">
+        <div class="content-header">
+          <h4>Blusas</h4>
+          <select name="order" id="order">
+            <option hidden selected value="">Ordenar por:</option>
+            <option value="recientes">Mas recentes</option>
+            <option value="menor_precio">Menor preço</option>
+            <option value="mayor_precio">Maior preço</option>
+          </select>
+        </div>
 
-</body>
-<h1>Desafio m3</h1>
+        <div class="cotent-body">
+          <div class="modal" id="filters" style="width: 157px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5>FILTRAR</h5>
+                <span id="close-filter" class="close">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <p class="title-filter accordion">
+                    CORES 
+                    <label class="icon-accordion">&#10093;</label> 
+                  </p>
+                  <ul class="colors-filter panel" id="colors-filter"></ul>
+                </div>
+                <div>
+                  <p class="title-filter accordion">
+                    TAMANHOS 
+                    <label class="icon-accordion">&#10093;</label>
+                  </p>
+                  <ul class="size-filter panel" id="size-filter"></ul>
+                </div>
+                <div>
+                  <p class="title-filter accordion">
+                    FAIXA DE PREÇO 
+                    <label class="icon-accordion">&#10093;</label>
+                  </p>
+                  <ul class="price-filter panel" id="price-filter"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<script src="bundle.js"></script>
+          <div id="buttons-filters">
+            <button id="btn-filter">Filtrar</button>
+            <button id="btn-order">Ordenar</button>
+          </div>
 
+          <div style="width: 100%" id="products"></div>
+        </div>
+      </div>
+
+      <div id="modal-order" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>ORDERNAR</h5>
+            <span id="close-order" class="close">&times;</span>
+          </div>
+          <label class="modal-body">
+            <input type="radio" name="order" id="recientes" value="recientes" class="title-order"/>
+            <label for="recientes" class="order-label">Mais recente</label>
+
+            <input type="radio" name="order" id="mayor_precio" value="mayor_precio" class="title-order"/>
+            <label for="mayor_precio" class="order-label">Maior preço</label>
+            <input type="radio" name="order" id="menor_precio" value="menor_precio" class="title-order"/>
+            <label for="menor_precio" class="order-label">Menor preço</label>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <h5>
+          M3: IMPLANTAÇÃO DE E-COMMERCE VTEX
+        </h5>
+      </footer>
+    </div>
+  </body>
+  
+    
+
+  <script src="bundle.js"></script>
 </html>
