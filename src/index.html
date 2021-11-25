@@ -57,12 +57,10 @@
 
       <div id="side-panel" class="side-panel">
         <div class="side-panel-header">
-          <!-- <div class="side-panel-container"> -->
           <h1 id="side-panel-title"></h1>
           <a href="javascript:void(0)" id="close-side-panel" class="closebtn"
             ><span class="material-icons"> close</span></a
           >
-          <!-- </div> -->
         </div>
         <div class="side-panel-container">
           <div id="filter-container">
@@ -75,7 +73,6 @@
                 <form id="color-mobile" class="category-form"></form>
               </div>
             </div>
-
             <div class="radio-button-category">
               <div id="size-filter" class="collapsible-filter">
                 <span><h1 class="category-title">Tamanhos</h1></span>
@@ -85,7 +82,6 @@
                 <form id="size-mobile" class="category-form"></form>
               </div>
             </div>
-
             <div class="radio-category">
               <div id="price-range-filter" class="collapsible-filter">
                 <span><h1 class="category-title">Faixa de preço</h1></span>
@@ -139,19 +135,45 @@
           </div>
         </div>
       </div>
+
+      <div id="cart-panel">
+        <div class="side-panel-header">
+          <h1>Carrinho</h1>
+          <a href="javascript:void(0)" id="close-cart" class="closebtn"
+            ><span class="material-icons"> close</span></a
+          >
+        </div>
+        <div class="side-panel-container">
+          <div class="row">
+            <div class="col-12">
+              <div class="product-list">
+                <div class="product-icon">ICON</div>
+                <div class="product-name">Name</div>
+                <div class="product-price">Price</div>
+              </div>
+            </div>
+          </div>
+          <div id="shopping-cart-products" class="row"></div>
+          <div class="total-container row">
+            <div class="col-12">
+              <div class="product-list">
+                <div class="product-icon"></div>
+                <div class="product-name"></div>
+                <div class="product-price"></div>
+              </div>
+            </div>
+            <div class="col-12">
+              <h2>Total: R$ <span id="total">0</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <footer>
     <div>M3: Implantação de E-commerce VTEX</div>
   </footer>
-
-  <!--
-  <p>organizar el css</p>
-  <p>pipeline- filtros -> paginacion resultados -> render para desktop</p>
-  <p>cargar mas colores desktop</p>
-  <p>show cart</p>
-  -->
 
   <script src="bundle.js"></script>
 </html>

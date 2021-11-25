@@ -1,4 +1,5 @@
-import { isMobile, removeAllChildNodes, uniqueValues } from "./utils";
+import { isMobile, uniqueValues } from "./utils";
+import { generateRadioNodes } from "./generators";
 
 export const orderByDate = (products, date = "newest") => {
   if (date.toLowerCase() === "newest")
@@ -49,6 +50,20 @@ export const applyPagination = (products, page = 1, loadMoreButton) => {
   return products.slice(0, showResults);
 };
 
+export const applyFilters = (allProducts, filters) => {
+  let filteredProducts = allProducts;
+  if (filters.color) {
+    filteredProducts = filterByColor(filteredProducts, filters.color);
+  }
+  if (filters.size) {
+    filteredProducts = filterBySize(filteredProducts, filters.size);
+  }
+  if (filters.priceRange) {
+    filteredProducts = filterByPriceRange(filteredProducts, filters.priceRange);
+  }
+  return filteredProducts;
+};
+
 export const renderFilters = (products, isMobile = false) => {
   const colorNode = document.getElementById(
     isMobile ? "color-mobile" : "color"
@@ -70,65 +85,30 @@ export const renderFilters = (products, isMobile = false) => {
   const uniqueColors = colors.filter(uniqueValues);
   const uniqueSizes = sizes.filter(uniqueValues);
 
-  colorNode.append(...generateRadioNodes(uniqueColors, "color"));
+  colorNode.append(...showMore(generateRadioNodes(uniqueColors, "color")));
 
   sizeNode.append(...generateRadioNodes(uniqueSizes, "size", "button"));
 
   priceRangeNode.append(...generateRadioNodes(priceRanges, "parcelamento"));
 };
 
-const generateRadioNodes = (values, categoryName, type = undefined) => {
-  const radioNodes = [];
-  switch (type) {
-    case "button":
-      values.forEach((value) => {
-        radioNodes.push(generateButtonInput(value, categoryName));
-      });
-
-      break;
-    default:
-      values.forEach((value) => {
-        radioNodes.push(...generateRadioInput(value, categoryName));
-      });
-  }
-
-  return radioNodes;
-};
-
-const generateRadioInput = (value, categoryName) => {
-  const input = document.createElement("input");
-  input.type = "radio";
-  input.value = value;
-  input.name = categoryName;
-
-  const label = document.createElement("label");
-  label.for = categoryName;
-  if (categoryName === "parcelamento") {
-    label.textContent = value.split("-")[1]
-      ? `de R$${value.split("-")[0]} até R$${value.split("-")[1]}`
-      : `a partir de R$${value.split("-")[0]}`;
-  } else {
-    label.textContent = value;
-  }
-
-  const br = document.createElement("br");
-
-  return [input, label, br];
-};
-
-const generateButtonInput = (value, categoryName) => {
-  const input = document.createElement("input");
-  input.type = "radio";
-  input.value = value;
-  input.name = categoryName;
-
+const showMore = (nodes) => {
+  const initial = nodes.slice(0, 15);
   const span = document.createElement("span");
-  span.textContent = value;
-  const div = document.createElement("div");
-  div.className = "box-button";
-  const label = document.createElement("label");
-  div.appendChild(span);
-  label.append(input, div);
+  span.id = "more-filters";
+  span.style.display = isMobile() ? "block" : "none";
+  const button = document.createElement("div");
+  button.textContent = "Ver todas as cores ";
+  button.id = "show-more-filters";
+  button.addEventListener("click", () => {
+    button.style.display = "none";
+    span.style.display = "block";
+  });
+  const icon = document.createElement("span");
+  icon.className = "material-icons";
+  icon.textContent = "expand_more";
+  button.append(icon);
+  span.append(...nodes.slice(15));
 
-  return label;
+  return [...initial, button, span];
 };

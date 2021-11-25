@@ -11,6 +11,28 @@
   overflow-x: hidden;
   transition: 0.2s;
 }
+#cart-panel {
+  z-index: 0;
+  height: 103vh;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: $white;
+  overflow-x: hidden;
+  transition: 0.2s;
+  border-left: 2px solid $gray-3;
+  .side-panel-header {
+    padding: 0 $spacer-4;
+    border: none;
+  }
+}
+
+#content {
+  transition: margin-right 0.5s; /* If you want a transition effect */
+  padding: 20px;
+}
 .side-panel-container {
   padding: 0;
   width: 100%;
@@ -114,7 +136,7 @@ input[type="radio"] {
     height: 0.65em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-button-shadow: inset 1em 1em var(--form-control-color);
+    // box-button-shadow: inset 1em 1em var(--form-control-color);
     background-color: $primary;
   }
 
@@ -173,6 +195,27 @@ input[type="radio"] {
         font-weight: normal;
         color: $black;
       }
+    }
+  }
+}
+
+#more-filters {
+}
+#show-more-filters {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  // #more-filters {
+  //   display: none;
+  // }
+  #show-more-filters {
+    text-decoration: underline;
+    color: $gray-1;
+    display: inline-block;
+    cursor: pointer;
+    span {
+      vertical-align: middle;
     }
   }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel dev server",
     "dev": "gulp",
-    "server": "json-server ./db.json --port 3003"
+    "server": "json-server ./db.json --port 5000"
   },
   "repository": {
     "type": "git",

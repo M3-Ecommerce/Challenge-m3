@@ -32,3 +32,21 @@
   font-size: small;
   color: $gray-2;
 }
+
+.product-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $gray-3;
+  .product-icon {
+    img {
+      width: 70px;
+    }
+  }
+}
+.total-container {
+  h2 {
+    font-weight: $font-weight-heavy;
+  }
+}

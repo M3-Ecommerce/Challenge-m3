@@ -1,83 +1,51 @@
 import { closeNav } from "./navigation";
 import { removeAllChildNodes, isMobile } from "./utils";
 import { applyPagination } from "./filters";
+import { generateProductNode, generateProductListNode } from "./generators";
 
-export const renderProducts = (products, shop) => {
+export const renderProducts = (products, nodeId, shop) => {
   const productNodes = [];
-  products.forEach((product) => {
-    const productNode = generateProductNode(product, shop);
-    productNodes.push(productNode);
-  });
-  document.getElementById("products").append(...productNodes);
+  if (shop) {
+    products.forEach((product) => {
+      const productNode = generateProductNode(product, shop);
+      productNodes.push(productNode);
+    });
+  } else {
+    products.forEach((product) => {
+      const productNode = generateProductListNode(product, shop);
+      productNodes.push(productNode);
+    });
+  }
+
+  document.getElementById(nodeId).append(...productNodes);
 };
 
-export const refreshProducts = (newProducts, page, shop) => {
+export const refreshProducts = (newProducts, nodeId, page, shop) => {
   const loadMoreButton = document.getElementById("load-more");
-  const renderedProducts = document.getElementById("products");
+  const renderedProducts = document.getElementById(nodeId);
   removeAllChildNodes(renderedProducts);
-  renderProducts(applyPagination(newProducts, page, loadMoreButton), shop);
+  const productsToShow = shop
+    ? applyPagination(newProducts, page, loadMoreButton)
+    : newProducts;
+  renderProducts(productsToShow, nodeId, shop);
   if (isMobile()) {
     closeNav();
   }
 };
 
-export const shoppingCart = (badge, allProducts) => {
+export const shoppingCart = (badge, container, total, allProducts) => {
   const cart = [];
   const addToCart = (id) => {
     cart.push(allProducts.find((product) => product.id === id));
     badge.textContent = cart.length;
+    refreshProducts(cart, container.id);
+    total.textContent = calculateTotal(cart);
   };
   return { cart, addToCart };
 };
 
-const generateProductNode = (product, shop) => {
-  const { image, name, id, price, parcelamento } = product;
-  const col = document.createElement("div");
-  col.className = "col-6 col-md-4";
-
-  const container = document.createElement("div");
-  container.className = "product";
-
-  const imgContainer = document.createElement("div");
-  imgContainer.className = "product-img";
-
-  const productImg = document.createElement("img");
-  productImg.src = image;
-  productImg.width = "auto";
-
-  const productName = document.createElement("div");
-  productName.className = "product-name";
-  productName.textContent = name;
-
-  const productPrice = document.createElement("div");
-  productPrice.className = "product-price";
-  productPrice.textContent = `R$ ${price}`;
-
-  const deferredPrice = document.createElement("div");
-  deferredPrice.className = "product-deferred-price";
-  deferredPrice.textContent = `até ${parcelamento[0]}x de R$${parcelamento[0]}`;
-
-  const productAction = document.createElement("div");
-  productAction.className = "product-action btn btn-secondary";
-  productAction.id = `product-${id}`;
-  productAction.name = name;
-  productAction.textContent = "comprar";
-  productAction.addEventListener("click", (e) => {
-    if (
-      confirm(`Deseja adicionar ${e.target.name.toUpperCase()} ao carrinho?`)
-    ) {
-      shop.addToCart(e.target.id.split("-")[1]);
-    }
-  });
-
-  imgContainer.appendChild(productImg);
-  container.append(
-    imgContainer,
-    productName,
-    productPrice,
-    deferredPrice,
-    productAction
-  );
-  col.appendChild(container);
-  return col;
+const calculateTotal = (products) => {
+  return products.reduce((total, product) => {
+    return total + Number(product.price);
+  }, 0);
 };

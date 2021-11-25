@@ -5,26 +5,11 @@ import {
   renderFilters,
   orderByPrice,
   orderByDate,
-  filterBySize,
-  filterByColor,
-  filterByPriceRange,
   applyPagination,
+  applyFilters,
 } from "./filters";
 import { openNav, closeNav } from "./navigation";
-const url = "http://localhost:3003/products";
-
-let allProducts = [];
-let filters = {
-  color: undefined,
-  size: undefined,
-  priceRange: undefined,
-};
-let isFilterOpen = {
-  color: false,
-  size: false,
-  "price-range": false,
-};
-let page = 1;
+import { isMobile, createFilterToggles } from "./utils";
 
 const loadMoreButton = document.getElementById("load-more");
 const mobileColorFilterNode = document.getElementById("color-mobile");
@@ -40,54 +25,52 @@ const closeSidePanelbutton = document.getElementById("close-side-panel");
 const orderRecentsNodes = document.getElementsByClassName("recents");
 const orderPriceAscNodes = document.getElementsByClassName("asc-price");
 const orderPriceDescNodes = document.getElementsByClassName("desc-price");
-
+const badge = document.getElementById("cart-badge");
+const cartButton = document.getElementById("cart");
+const closeCartButton = document.getElementById("close-cart");
+const cartPanel = document.getElementById("cart-panel");
+const total = document.getElementById("total");
+const shoppingCartProducts = document.getElementById("shopping-cart-products");
 const applyFiltersButton = document.getElementById("apply-filters");
 const clearFiltersButton = document.getElementById("clear-filters");
 const filterActionsNode = document.getElementById("filter-actions");
 const mobileFilterContainer = document.getElementById("filter-container");
 const mobileOrderContainer = document.getElementById("order-container");
 
+const url = "http://localhost:5000/products";
+
+let allProducts = [];
+let filters = {
+  color: undefined,
+  size: undefined,
+  priceRange: undefined,
+};
+let isFilterOpen = {
+  color: false,
+  size: false,
+  "price-range": false,
+};
+let page = 1;
+let shop = undefined;
+
+/**
+ * =================================================================
+ * Initialize with api call
+ * =================================================================
+ */
+
 getProducts(url).then((products) => {
   allProducts = products;
-  const shop = shoppingCart(badge, allProducts);
-  renderProducts(applyPagination(products, page, loadMoreButton), shop);
-  renderFilters(products);
-  renderFilters(products, true);
-});
-
-const applyFilters = (allProducts, filters) => {
-  let filteredProducts = allProducts;
-  if (filters.color) {
-    filteredProducts = filterByColor(filteredProducts, filters.color);
-  }
-  if (filters.size) {
-    filteredProducts = filterBySize(filteredProducts, filters.size);
-  }
-  if (filters.priceRange) {
-    filteredProducts = filterByPriceRange(filteredProducts, filters.priceRange);
-  }
-  return filteredProducts;
-};
-mobileColorFilterNode.addEventListener("change", (e) => {
-  filters.color = e.target.value;
-});
-
-mobileSizeFilterNode.addEventListener("change", (e) => {
-  filters.size = e.target.value;
-});
-
-mobilePriceRangeFilterNode.addEventListener("change", (e) => {
-  filters.priceRange = e.target.value;
-});
-
-applyFiltersButton.addEventListener("click", (e) => {
-  refreshProducts(applyFilters(allProducts, filters), page, shop);
-  closeNav();
+  shop = shoppingCart(badge, shoppingCartProducts, total, allProducts);
+  renderProducts(allProducts, "products", shop);
+  renderFilters(allProducts);
+  renderFilters(allProducts, true);
+  createFilterToggles(isFilterOpen);
 });
 
 const resetFilters = () => {
   page = 1;
-  refreshProducts(allProducts, page, shop);
+  refreshProducts(allProducts, "products", page, shop);
   filters = {
     color: undefined,
     size: undefined,
@@ -102,6 +85,29 @@ const resetFilters = () => {
   loadMoreButton.className = "btn btn-primary col-6 col-md-5 col-lg-4 col-xl-3";
 };
 
+/**
+ * =================================================================
+ * Make reactive with event listeners
+ * =================================================================
+ */
+
+mobileColorFilterNode.addEventListener("change", (e) => {
+  filters.color = e.target.value;
+});
+
+mobileSizeFilterNode.addEventListener("change", (e) => {
+  filters.size = e.target.value;
+});
+
+mobilePriceRangeFilterNode.addEventListener("change", (e) => {
+  filters.priceRange = e.target.value;
+});
+
+applyFiltersButton.addEventListener("click", (e) => {
+  refreshProducts(applyFilters(allProducts, filters), "products", page, shop);
+  closeNav();
+});
+
 clearFiltersButton.addEventListener("click", () => {
   closeNav();
   resetFilters();
@@ -109,17 +115,17 @@ clearFiltersButton.addEventListener("click", () => {
 
 colorFilterNode.addEventListener("change", (e) => {
   filters.color = e.target.value;
-  refreshProducts(applyFilters(allProducts, filters), page, shop);
+  refreshProducts(applyFilters(allProducts, filters), "products", page, shop);
 });
 
 sizeFilterNode.addEventListener("change", (e) => {
   filters.size = e.target.value;
-  refreshProducts(applyFilters(allProducts, filters), page, shop);
+  refreshProducts(applyFilters(allProducts, filters), "products", page, shop);
 });
 
 priceRangeFilterNode.addEventListener("change", (e) => {
   filters.priceRange = e.target.value;
-  refreshProducts(applyFilters(allProducts, filters), page, shop);
+  refreshProducts(applyFilters(allProducts, filters), "products", page, shop);
 });
 filterButtonNode.addEventListener("click", () => {
   mobileFilterContainer.className = "show";
@@ -140,54 +146,44 @@ closeSidePanelbutton.addEventListener("click", () => closeNav());
 for (const node of orderRecentsNodes) {
   node.addEventListener("click", () => {
     resetFilters();
-    refreshProducts(orderByDate(allProducts, "newest"), page, shop);
+    refreshProducts(orderByDate(allProducts, "newest"), "products", page, shop);
   });
 }
 
 for (const node of orderPriceAscNodes) {
   node.addEventListener("click", () => {
     resetFilters();
-    refreshProducts(orderByPrice(allProducts, "asc")), page, shop;
+    refreshProducts(orderByPrice(allProducts, "asc"), "products", page, shop);
   });
 }
 
 for (const node of orderPriceDescNodes) {
   node.addEventListener("click", () => {
     resetFilters();
-    refreshProducts(orderByPrice(allProducts, "desc"), page, shop);
+    refreshProducts(orderByPrice(allProducts, "desc"), "products", page, shop);
   });
 }
-
-function closeFilter(filter, isFilterOpen) {
-  document.getElementById(`${filter}-filter-dropdown`).style.height = "0";
-  isFilterOpen[filter] = false;
-}
-function openFilter(filter, isFilterOpen) {
-  document.getElementById(`${filter}-filter-dropdown`).style.height = "auto";
-  isFilterOpen[filter] = true;
-}
-
-const createFilterToggles = (isFilterOpen) => {
-  for (const filterName in isFilterOpen) {
-    document
-      .getElementById(`${filterName}-filter`)
-      .addEventListener("click", () =>
-        isFilterOpen[`${filterName}`]
-          ? closeFilter(`${filterName}`, isFilterOpen)
-          : openFilter(`${filterName}`, isFilterOpen)
-      );
-  }
-};
-
-createFilterToggles(isFilterOpen);
 
 loadMoreButton.addEventListener("click", () => {
   page += 1;
   refreshProducts(
-    applyPagination(allProducts, page, loadMoreButton),
+    applyPagination(applyFilters(allProducts, filters), page, loadMoreButton),
+    "products",
     page,
     shop
   );
 });
 
-const badge = document.getElementById("cart-badge");
+cartButton.addEventListener("click", () => openCart());
+
+closeCartButton.addEventListener("click", () => closeCart());
+const closeCart = () => {
+  cartPanel.style.width = "0";
+};
+const openCart = () => {
+  if (isMobile()) {
+    cartPanel.style.width = "100vw";
+  } else {
+    cartPanel.style.width = "30vw";
+  }
+};
