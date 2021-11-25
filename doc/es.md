@@ -58,6 +58,15 @@ Una vez que el comando es ejecutado el levantará 2 servidores, siendo ellos:
  - uno para acceder el front-end que corre en la puerta 3000. En el cual puede ser accedido por la url: http://localhost:3000
  - uno para el json-server que es responsable por exportar una api con la lista de productos que corre en la puerta 5000. Para acceder los produtos basta utilizar la url: http://localhost:5000/products
 
+### Observaciones 
+
+Adicionalmente se instalaron estas dependencias, si el codigo no corre, por favor instalarlas:
+ `npm install --save-dev @babel/plugin-transform-runtime`
+ `npm install --save @babel/runtime`
+ `npm install @babel/core --save`
+ `npm install @babel/core @babel/preset-env`
+ 
+
 ### Objetivo
 
 El objetivo de este reto es avaliar sus conocimientos fundamentales de front-end, y por eso pedimos que no utilice ninguno framework, sin enbargo caso desee utilizar frameworks como react, es posible añadir al setup.

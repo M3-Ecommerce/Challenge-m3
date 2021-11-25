@@ -1,1 +1,763 @@
 @import "reset";
+
+.linea{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.linea2{
+    display: none;
+}
+@media only screen and (max-width: 980px) {
+    .linea2 {
+        display: flex; 
+  }
+}
+#contenido{
+    width: 100%; 
+    margin: auto;
+}
+@media only screen and (min-width: 1500px) {
+    #contenido {
+        width: 1500px; 
+        margin: auto;
+    }
+}
+body{
+    background: #FFFFFF;
+    margin: auto;
+} 
+//---------------- HEADER STYLES---------------------
+.cont-header-flex{
+    height: 48px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+@media only screen and (max-width: 600px) {
+    .cont-header-flex { 
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.flex-img1{
+    width: 119px;
+    height: 30px;
+    margin-left:162px;
+}
+@media only screen and (max-width: 600px) {
+    .flex-img1 {
+        width: 119px;
+        height: 30px;
+        margin-left:27px;
+    }
+}
+.flex-img2{
+    width: 17px;
+    height: 20px;
+    margin-right: 162px;
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media only screen and (max-width: 600px) {
+    .flex-img2{
+        width: 17px;
+        height: 20px;
+        margin-right: 29px;
+        margin-top: 4px;
+    }
+}
+.flex-img1 img{
+    width: 119px;
+    height: 30px;
+}
+.flex-img2 img{
+    width: 17px;
+    height: 20px;
+} 
+.carrito{
+    width: 12px;
+    height: 12px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #FFFFFF;
+    border-radius: 12px;
+    margin-left: 3px;
+}
+.carritoCont{
+    display: flex;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background-color: #00C0EE;
+    margin-top: -10px;
+    margin-left:8px ;
+    z-index:1;
+    //text-align: center;
+    align-items: center;
+}
+#cerrarVentana{
+    display: none;
+    overflow: hidden;
+}
+#cerrarCont img{
+    display: flex;
+}
+@media only screen and (max-width: 980px) {
+    #cerrarVentana{
+        height: 40px;
+        width: 40px;
+        display: flex;
+        margin-left: 200px;
+        margin-top: -1px;
+    }
+}
+
+//-----------------------------------------------------
+
+
+//----------------------BODY - HEAD--------------------
+.cont-bodyHead{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    height: 149px;
+}
+@media only screen and (max-width: 980px) {
+    .cont-bodyHead {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items:center;
+        height: 95px;  
+  }
+}
+@media only screen and (max-width: 370px) {
+    .cont-bodyHead {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items:center;
+        height: 130px;  
+  }
+}
+.blusas{
+    width: 97px;
+    height: 44px;
+    margin-left: 162px;
+    margin-top: 40px;
+}
+@media only screen and (max-width: 980px) {
+    .blusas{
+        width: 97px;
+        height: 44px;
+        margin:24px auto;
+        overflow: hidden;
+        display: none;
+    }
+}
+.blusas h1{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 44px;
+}
+@media only screen and (max-width: 980px) {
+    .blusas h1{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 33px;
+        color: #666666;
+    }
+}
+.blusas2{
+    display: none;
+}
+@media only screen and (max-width: 980px) {
+    .blusas2{
+        display: block;
+        width: 97px;
+        height: 44px;
+        margin:24px auto;
+        margin-bottom: 0px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 44px;
+    }
+}
+.blusasOrderby{
+    width: 142px;
+    height: 42px;
+    margin-right: 162px;
+    margin-top: 20px;
+}
+@media only screen and (max-width: 980px) {
+    .blusasOrderby{
+        width:7px;
+        height: 102px;
+        margin-left: 5px;
+        order:2;
+    }
+}
+@media only screen and (max-width: 371px) {
+    .blusasOrderby{
+        width:7px;
+        height: 102px;
+        margin-left: 0px;
+        order:-1;
+        margin-top:10px;
+    }
+}
+.blusasOrderby .select-css{
+    width: 171px;
+    height: 49px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 33px;
+    color: #666666;
+    text-align: center;
+    border: 1.5px solid #666666;
+    border-radius: 0px;
+    text-decoration: none;
+    margin-top: 6px;
+}
+@media only screen and (max-width: 980px) {
+    .blusasOrderby .select-css{
+        -webkit-appearance: none;
+    }
+} 
+.blusasOrderby .select-css:hover{
+    border-color: #00C0EE;
+    //background-color: #00C0EE;
+}
+//------------------------------------------------------------------
+
+
+//-----------------------ESTILO DE FILTROS--------------------------
+#nav-bar{
+    display: none;
+} 
+@media only screen and (max-width: 980px) {
+    #nav-bar{
+        display:flex;
+        height: 46px;
+        width: 171px;
+        border: 1.5px solid #666666;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 33px;
+        color: #666666;
+        justify-content: center;
+        align-items: center;
+        margin-right:  -5px;
+        margin-bottom: 21px;
+    }
+} 
+@media only screen and (max-width: 371px) {
+    #nav-bar{
+        display:flex;
+        height: 46px;
+        width: 169px;
+        border: 1.5px solid #666666;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 33px;
+        color: #666666;
+        justify-content: center;
+        align-items: center;
+        margin-right:  -3px;
+        margin-top: -45px;
+    }
+}
+@media only screen and (max-width: 371px) and (min-width: 339px) {
+    #nav-bar{
+        display:flex;
+        height: 46px;
+        width: 169px;
+        border: 1.5px solid #666666;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 33px;
+        color: #666666;
+        justify-content: center;
+        align-items: center;
+        margin-right:  -3px;
+        margin-top: -10px;
+    }
+}
+#btnNav_2{
+    display: none;
+}
+#btnNav_2:hover{
+    transform: scale(1.05);
+}
+@media only screen and (max-width: 980px) {
+    #btnNav_2{
+        display:flex;
+        height: 35px;
+        width: 160px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        justify-content: center;
+        align-items: center;
+        margin-left: 16px;
+        margin-top: 80px;
+        background: #00C0EE;
+    }
+} 
+#btnNav_3{
+    display: none;
+}
+#btnNav_3:hover{
+    transform: scale(1.05);
+}
+@media only screen and (max-width: 980px) {
+    #btnNav_3{
+        display:flex;
+        height: 29px;
+        width: 154px;
+        border: 3px solid #666666;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        text-transform: uppercase;
+        color: #666666;
+        justify-content: center;
+        align-items: center;
+        margin-left: 200px;
+        margin-top: -35px;
+        background: #FFFFFF;
+    }
+} 
+.cont-body{
+    display: flex;
+    justify-content: space-between;
+}
+.cont-filter-1{
+    width: 157px;
+    height: 648px;
+    margin-left: 157px;
+}
+@media only screen and (max-width: 980px) {
+    .cont-filter-1 {
+        width: 0px;
+        height: 0px;
+        margin-left: 0px;
+        overflow: hidden;
+        display: none;
+  }
+}
+.filtrar-filter{
+    display: none;
+}
+@media only screen and (max-width: 980px) {
+    .filtrar-filter h2{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+        line-height: 38px;
+        text-transform: uppercase;
+        color: #666666;
+    }
+}
+@media only screen and (max-width: 980px) {
+    .filtrar-filter{
+        display: flex;
+        width: 149px;
+        height: 38px;
+        margin-left: 16px;
+        margin-top: 16px;
+    }
+}
+.cont-filter{
+    position: absolute;
+    width: 157px;
+    height: 648px;
+    margin-left: 157px;
+    margin-top: 149px;
+}
+@media only screen and (max-width: 980px) {
+    .cont-filter {
+        margin-top: 620px;
+        position: absolute;
+        width: 100%;
+        height: 1000px;
+        margin-left: 0px;
+        background-color: white;
+        margin-top:-3000px;  
+        z-index: 2;      
+  }
+.mostrar{
+    margin-top:600px;
+    }
+}
+
+.cont-filter h1{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #333333;
+}
+@media only screen and (max-width: 980px) {
+    .color-filter h1, .talla-filter h1, .precio-filter h1{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 33px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #666666;
+    }
+}
+.color-filter{
+    margin-left: 3px;
+    width: 92px;
+    height: 286px;
+    margin-top: 0px;
+}
+@media only screen and (max-width: 980px) {
+    .color-filter{
+        margin-left: 16px;
+        width: 92px;
+        height: 286px;
+        margin-top: 30px;
+    }
+}
+.talla-filter{
+    width: 153px;
+    height: 158px;
+    margin-top:45px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #333333;
+}
+@media only screen and (max-width: 980px) {
+    .talla-filter{
+        width: 153px;
+        height: 158px;
+        margin-top:50px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #333333;
+        margin-left: 16px;
+    }
+}
+.precio-filter{
+    width: 157px;
+    height: 156px;
+    margin-top:10px;
+}
+@media only screen and (max-width: 980px) {
+    .precio-filter{
+        width: 157px;
+        height: 156px;
+        margin-top:10px;
+        margin-left: 16px;
+    }
+}
+//formulario talla
+.formTalla{
+    margin-left: 1px;
+    margin-top: -10px;    
+}
+.formTalla .labeltalla{
+    margin-top: 24px;
+    display:inline-flex;
+    position:relative;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.boxtalla:checked + label{
+    border: 2px solid #00C0EE;
+}
+.boxtalla{
+    display: none;
+}
+//formulario color
+.formColor{
+    display: block;
+    margin-left: 1px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: #000000;
+    margin-top: 5px;
+} 
+//formulario precio
+.formPrecio{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: #000000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+//estilos precio y color
+.formPrecio input[type=radio] {
+    padding: 7px;
+    margin-top: 9px;
+    -webkit-appearance: none;
+    outline: 1px solid black;
+    outline-offset: 0.1em;
+}
+.formColor input[type=radio] {
+    padding: 7px;
+    margin-top: 12px;
+    -webkit-appearance: none;
+    outline: 1px solid black;
+    outline-offset: 0.1em;
+}
+.formPrecio input[type=radio]:checked,
+.formColor input[type=radio]:checked {
+    display: inline-block;
+    background-color: #00C0EE;
+}
+//------------------------------------------------------------------
+
+
+//-------------------------BOTON CARGAR MAS-------------------------
+.btn-footer{
+    height: 143px;
+    display: flex;
+    justify-content: center;
+}
+.btn-cargarMas{
+    width: 175px;
+    height: 35px;
+    margin-top: 70px;
+    background-color: #00C0EE;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+.btn-cargarMas:hover{
+    transform: scale(1.04);
+}
+
+
+//---------------------------ESTILOS DE TARJETA---------------------
+#app{
+    width: 1000px;
+    margin-right: 162px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: center;    
+}
+@media only screen and (max-width: 1250px) {
+    #app{
+    margin-right:0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;    
+}
+}
+.producto{
+    width: 195.25px;
+    height: 424px;
+    padding-bottom: 50px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+@media only screen and (max-width: 555px) {
+    .producto{
+        width: 162px;
+        height: 357px;
+        padding-bottom: 40px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+.imgProducto{
+    width: 195px;
+    height: 293px;
+}
+@media only screen and (max-width: 555px) {
+    .imgProducto{
+        width: 161px;
+        height: 242px;
+    }
+}
+.nombreProducto {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #000000;
+    text-align: center;
+}
+@media only screen and (max-width: 555px) {
+    .nombreProducto{
+        margin-top: 8px;
+    }
+}
+.precioProducto{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+    margin-top: 10px;
+    text-align: center;
+}
+@media only screen and (max-width: 555px) {
+    .nombreProducto{
+        margin-top: 8px;
+    }
+}
+.ordenProducto{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #666666;
+    margin-top: 0px;
+    text-align: center;
+}
+.btn-comprarProducto{
+    width: 195px;
+    height: 33px;
+    background-color: #000000;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-top: 21px;
+}
+.btn-comprarProducto:hover{
+    transform: scale(1.04);
+}
+@media only screen and (max-width: 555px) {
+    .btn-comprarProducto{
+        width: 162px;
+        height: 33px;
+        margin-top: 18px;
+    }
+}
+//---------------------ESTILO DEL FOOTER------------------
+.cont-footer{
+    height: 33px;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont-footer h1{
+    width: 300px;
+    height: 19px;
+    text-align: center;
+    bottom: 7px;
+    font-family: Open Sans;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+//-----------------BOTONES PARA RECOGER FILTROS
+#btnColor{
+    display: none;
+}
+@media only screen and (max-width: 980px) {
+    #btnColor{
+        display: block;
+        position: absolute;
+        color:#666666;
+        margin-top: -30px;
+        margin-left: 316px;
+    }
+}
+#btnTalla{
+    display: none;
+}
+@media only screen and (max-width: 980px) {
+    #btnTalla{
+        display: block;
+        position: absolute;
+        color:#666666;
+        margin-top: -30px;
+        margin-left: 316px;
+    }
+}
+#btnPrecio{
+    display: none;
+}
+@media only screen and (max-width: 980px) {
+    #btnPrecio{
+        display: block;
+        position: absolute;
+        color:#666666;
+        margin-top: -60px;
+        margin-left: 316px;
+    }
+}
+
