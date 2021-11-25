@@ -1,19 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvedor M3</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor M3</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
+  <body></body>
+  <!-- <h1>Desafio m3</h1> -->
 
-<body>
+  <div id="header">
+    <div class="container">
+      <div class="navbar">
+        <div id="logo"><img src="./img/logo-m3.png" alt="" /></div>
+        <div id="cart">
+          <img src="./img/bag.svg" alt="shopping-bag" />
+          <div id="cart-badge">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</body>
-<h1>Desafio m3</h1>
+  <div id="content">
+    <div class="container">
+      <div class="title">
+        <h1>Blusas</h1>
+        <div>
+          <div class="order-dropdown">
+            <button class="order-dropbtn">
+              <span>Ordenar por:</span>
+              <span class="material-icons"> expand_more </span>
+            </button>
+            <div class="order-dropdown-content">
+              <button class="recents">Mas recentes</button>
+              <button class="asc-price">Menor preço</button>
+              <button class="desc-price">Maior preço</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="actions" class="row">
+        <div class="btn" id="filter">Filtrar</div>
+        <div class="btn" id="order">Ordenar</div>
+      </div>
 
-<script src="bundle.js"></script>
+      <div id="side-panel" class="side-panel">
+        <div class="side-panel-header">
+          <!-- <div class="side-panel-container"> -->
+          <h1 id="side-panel-title"></h1>
+          <a href="javascript:void(0)" id="close-side-panel" class="closebtn"
+            ><span class="material-icons"> close</span></a
+          >
+          <!-- </div> -->
+        </div>
+        <div class="side-panel-container">
+          <div id="filter-container">
+            <div class="radio-category">
+              <div id="color-filter" class="collapsible-filter">
+                <span><h1 class="category-title">Cores</h1></span>
+                <span class="material-icons"> expand_more </span>
+              </div>
+              <div id="color-filter-dropdown" class="filter-dropdown">
+                <form id="color-mobile" class="category-form"></form>
+              </div>
+            </div>
 
+            <div class="radio-button-category">
+              <div id="size-filter" class="collapsible-filter">
+                <span><h1 class="category-title">Tamanhos</h1></span>
+                <span class="material-icons"> expand_more </span>
+              </div>
+              <div id="size-filter-dropdown" class="filter-dropdown">
+                <form id="size-mobile" class="category-form"></form>
+              </div>
+            </div>
+
+            <div class="radio-category">
+              <div id="price-range-filter" class="collapsible-filter">
+                <span><h1 class="category-title">Faixa de preço</h1></span>
+                <span class="material-icons"> expand_more </span>
+              </div>
+              <div id="price-range-filter-dropdown" class="filter-dropdown">
+                <form id="price-range-mobile" class="category-form"></form>
+              </div>
+            </div>
+          </div>
+          <div id="order-container">
+            <button class="recents"><h1>Mas recentes</h1></button>
+            <button class="asc-price"><h1>Menor preço</h1></button>
+            <button class="desc-price"><h1>Maior preço</h1></button>
+          </div>
+          <div id="filter-actions" class="">
+            <div id="apply-filters" class="btn btn-primary">Aplicar</div>
+            <div id="clear-filters" class="btn">Limpar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="desktop-filters" class="col-md-4 col-lg-3">
+          <div class="radio-category">
+            <h2 class="category-title">Cores</h2>
+            <form id="color" class="category-form"></form>
+          </div>
+
+          <div class="radio-button-category">
+            <h2 class="category-title">Tamanhos</h2>
+            <form id="size" class="category-form"></form>
+          </div>
+
+          <div class="radio-category">
+            <h2 class="category-title">Faixa de preço</h2>
+            <form id="price-range" class="category-form"></form>
+          </div>
+        </div>
+        <div id="wrapper" class="col-md-8 col-lg-9">
+          <div class="">
+            <div id="products" class="row"></div>
+
+            <div class="more row">
+              <div
+                id="load-more"
+                class="btn btn-primary col-6 col-md-5 col-lg-4 col-xl-3"
+              >
+                Carregar mais
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>M3: Implantação de E-commerce VTEX</div>
+  </footer>
+
+  <!--
+  <p>organizar el css</p>
+  <p>pipeline- filtros -> paginacion resultados -> render para desktop</p>
+  <p>cargar mas colores desktop</p>
+  <p>show cart</p>
+  -->
+
+  <script src="bundle.js"></script>
 </html>

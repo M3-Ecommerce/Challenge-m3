@@ -7,6 +7,7 @@ const autoprefixer = require("gulp-autoprefixer");
 const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const browserSync = require("browser-sync").create();
+const image = require("gulp-image");
 
 const webpackConfig = require("./webpack.config.js");
 
@@ -17,6 +18,7 @@ const paths = {
   },
   styles: {
     src: "src/scss/main.scss",
+    watch: "src/scss/*.scss",
   },
   img: {
     src: "src/img/**/*",
@@ -83,7 +85,9 @@ function html() {
 }
 
 function img() {
-  return src(paths.img.src).pipe(dest(paths.dest + "/img"));
+  return src(paths.img.src)
+    .pipe(image())
+    .pipe(dest(paths.dest + "/img"));
 }
 
 const build = series(clean, parallel(styles, scripts, html, img));
@@ -92,7 +96,10 @@ const dev = () => {
     "change",
     browserSync.reload
   );
-  watch(paths.styles.src, { ignoreInitial: false }, styles);
+  watch(paths.styles.watch, { ignoreInitial: false }, styles).on(
+    "change",
+    browserSync.reload
+  );
   watch(paths.img.src, { ignoreInitial: false }, img);
   watch(paths.html.src, { ignoreInitial: false }, html).on(
     "change",

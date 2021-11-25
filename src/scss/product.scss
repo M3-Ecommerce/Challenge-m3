@@ -1,0 +1,44 @@
+@import "variables";
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.product-img {
+  img {
+    width: 100%;
+  }
+}
+
+.product-name {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: $spacer-2;
+}
+
+.product-price {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: $spacer-1;
+  font-weight: $font-weight-bold;
+}
+.product-deferred-price {
+  text-align: center;
+  padding-bottom: $spacer-3;
+  font-size: small;
+  color: $gray-2;
+}
+
+.btn-secondary {
+  color: $white;
+  background-color: $black;
+  border: none;
+  text-transform: uppercase;
+  width: 100%;
+  font-weight: $font-weight-heavy;
+  cursor: pointer;
+}
