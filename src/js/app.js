@@ -1,4 +1,4 @@
-import { ProductList } from "./classes";
+import { ProductList, ShoppingCart } from "./classes";
 
 import {
   setSelectState,
@@ -6,15 +6,21 @@ import {
   filterSelectActions,
   buttonSizeActions,
   filterProductsActions,
+  addProductToCart,
+  toggleOpenCart,
+  shoppingCartActions,
   showMoreProducts,
 } from "./functions";
 
 const productList = new ProductList();
+const shoppingCart = new ShoppingCart();
 
 const $filterSelect = document.getElementById("filterSelect");
 const $sizeFilter = document.getElementById("sizeFilter");
 const $accordionButtons = document.getElementById("accordionButtons");
 const $btnShowMore = document.getElementById("btnShowMore");
+const $cart = document.getElementById("cart");
+const $productListContent = document.getElementById("productListContent");
 
 const runApp = () => {
   window.addEventListener("resize", () => {
@@ -36,6 +42,14 @@ const runApp = () => {
 
   $accordionButtons.addEventListener("click", (e) => {
     filterProductsActions(e, productList.productList);
+  });
+
+  $cart.addEventListener("click", (e) => {
+    toggleOpenCart(e, shoppingCart);
+  });
+
+  $productListContent.addEventListener("click", (e) => {
+    addProductToCart(e, shoppingCart);
   });
 
   $btnShowMore.addEventListener("click", showMoreProducts);

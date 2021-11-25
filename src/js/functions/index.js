@@ -3,6 +3,8 @@ import accordionListenerByScreenSize from "./accordion/accordionListenerByScreen
 import filterSelectActions from "./select/filterSelectActions";
 import filterProductsActions from "./product/filterProductsActions";
 import buttonSizeActions from "./accordion/buttonSizeActions";
+import addProductToCart from "./product/addProductToCart";
+import toggleOpenCart from "./toggleOpenCart";
 import showMoreProducts from "./product/showMoreProducts";
 
 export {
@@ -11,5 +13,7 @@ export {
   filterSelectActions,
   filterProductsActions,
   buttonSizeActions,
+  addProductToCart,
+  toggleOpenCart,
   showMoreProducts,
 };

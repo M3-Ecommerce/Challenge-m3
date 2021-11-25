@@ -19,12 +19,26 @@
       <div class="header__content">
         <img src="./img/logo-m3.png" class="header__logo" alt="Main Logo" />
 
-        <div class="cart">
+        <div class="cart" id="cart">
           <img src="./img/bag.png" class="cart__bag" alt="Bag Logo" />
-          <span class="cart__product-counter" id="productCounter">1</span>
+          <span class="cart__product-counter" id="productCounter">0</span>
         </div>
       </div>
     </header>
+
+    <section class="modal-cart" id="modalCart">
+      <div class="cart" id="cartContainer"></div>
+
+      <div class="cart-details">
+        <p class="cart-details__total-quantity">
+          Productos: <span id="totalProducts">0</span>
+        </p>
+
+        <p class="cart-details__total-price">
+          Precio total: <span id="totalPrice">0</span>
+        </p>
+      </div>
+    </section>
 
     <main class="main">
       <div class="main__layout">
