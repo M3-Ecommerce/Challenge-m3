@@ -44,15 +44,18 @@
       <div class="main__layout">
         <h1 class="main__title">Blusas</h1>
 
-        <section class="filter-buttons">
+        <section class="filter-buttons" id="filterButtons">
           <div class="filter-buttons__content">
             <a
               href="#filter"
               class="filter-buttons__option filter-buttons__option--border"
+              id="btnFilter"
             >
               Filtrar</a
             >
-            <a href="#order" class="filter-buttons__option">Ordernar</a>
+            <a href="#order" class="filter-buttons__option" id="btnOrder"
+              >Ordernar</a
+            >
           </div>
         </section>
 
@@ -202,19 +205,93 @@
 
               <div class="accordion__content">
                 <div class="sizes-grid" id="sizeFilter">
-                  <span class="sizes-grid__button" data-size="p">p</span>
-                  <span class="sizes-grid__button" data-size="m">m</span>
-                  <span class="sizes-grid__button" data-size="g">g</span>
-                  <span class="sizes-grid__button" data-size="gg">gg</span>
+                  <button
+                    class="sizes-grid__button"
+                    data-size="p"
+                    type="button"
+                  >
+                    p
+                  </button>
 
-                  <span class="sizes-grid__button" data-size="u">u</span>
-                  <span class="sizes-grid__button" data-size="36">36</span>
-                  <span class="sizes-grid__button" data-size="38">38</span>
-                  <span class="sizes-grid__button" data-size="40">40</span>
+                  <button
+                    class="sizes-grid__button"
+                    data-size="m"
+                    type="button"
+                  >
+                    m
+                  </button>
 
-                  <span class="sizes-grid__button" data-size="36">36</span>
-                  <span class="sizes-grid__button" data-size="38">38</span>
-                  <span class="sizes-grid__button" data-size="40">40</span>
+                  <button
+                    class="sizes-grid__button"
+                    data-size="g"
+                    type="button"
+                  >
+                    g
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="gg"
+                    type="button"
+                  >
+                    gg
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="u"
+                    type="button"
+                  >
+                    u
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="36"
+                    type="button"
+                  >
+                    36
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="38"
+                    type="button"
+                  >
+                    38
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="40"
+                    type="button"
+                  >
+                    40
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="36"
+                    type="button"
+                  >
+                    36
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="38"
+                    type="button"
+                  >
+                    38
+                  </button>
+
+                  <button
+                    class="sizes-grid__button"
+                    data-size="40"
+                    type="button"
+                  >
+                    40
+                  </button>
                 </div>
               </div>
             </div>
