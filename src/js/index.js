@@ -28,7 +28,7 @@ const pintarCards = (data) => {
    
       templeteCard.querySelector('img').setAttribute('src',producto.image);
       templeteCard.querySelector('h4').textContent = producto.name;
-      templeteCard.querySelector('h5').textContent = `R$ ${producto.price}`;
+      templeteCard.querySelector('h5').textContent = `R$${producto.price}`;
       templeteCard.querySelector('p').textContent = `até ${producto.parcelamento[0]}x de R$ ${producto.parcelamento[1]}`;
       templeteCard.querySelector('.button-card').dataset.id = producto.id;
 
@@ -78,7 +78,7 @@ const addProduct = event => {
 }
 
 
- const setCar = objeto => {
+const setCar = objeto => {
   const producto = {
     id: objeto.querySelector('.button-card').dataset.id,
     name :objeto.querySelector('h4').textContent,
@@ -91,18 +91,39 @@ const addProduct = event => {
   }
   car[producto.id] = {...producto}
 
-   console.log(car)
+  pintarCarrito();
    
-
-   const id = document.getElementById('conteo');
-   
-  for (let propiedad in car){
-
-    id.innerHTML=`<p>${(car[propiedad].cantidad)}  con ${(car[propiedad].name)} </p>`
-
-  }
  }
- 
+
+
+
+//------ table carritoooooo ---------
+
+const templateCarrito = document.getElementById('template-carrito').content;
+const itemsTwo = document.getElementById('itemsTwo')
+
+
+const pintarCarrito = () => {
+  console.log(car);
+  itemsTwo.innerHTML = ''
+
+  Object.values(car).forEach(producto => {
+    templateCarrito.querySelector('th').textContent = producto.id
+    templateCarrito.querySelectorAll('td')[0].textContent = producto.name
+    templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
+    templateCarrito.querySelector('span').textContent = parseInt((producto.price).substr(2, 6)) * parseInt(producto.cantidad)
+        
+
+
+        const clone = templateCarrito.cloneNode(true)
+        fragment.appendChild(clone)
+    })
+    itemsTwo.appendChild(fragment) 
+  }
+
+
+
+
 
 
 

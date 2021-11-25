@@ -26,7 +26,7 @@
       <div class="header__number">1</div>
     </div>
 
-    <div id="conteo"></div>
+    <!-- <div id="conteo"></div> -->
   </header>
 
   <main>
@@ -247,12 +247,25 @@
 
     
     <div class="container" id="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody id="itemsTwo"></tbody>
+      </table>
+
+
       <div class="main__items" id="items"></div> 
    </div>
 
    <!-- <button type="button" class="main__LoadMore" id="demo">Cargar Mas</button> -->
 
-
+   
 
 
     <template id="template__card">
@@ -269,6 +282,18 @@
         </div>
       </div>
     
+    </template>
+
+
+
+  
+  <template id="template-carrito">
+    <tr>
+      <th scope="row">id</th>
+      <td>Café</td>
+      <td>1</td>
+      <td>$ <span>500</span></td>
+    </tr>
   </template>
 
 
