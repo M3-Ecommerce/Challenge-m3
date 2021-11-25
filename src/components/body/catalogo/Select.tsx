@@ -7,13 +7,11 @@ function Select(props: any) {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    console.log(e);
     setSort(e);
   };
   const handlerInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    console.log(e);
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   return (

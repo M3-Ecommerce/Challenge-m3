@@ -32,16 +32,15 @@ function ColorFilter(props: any) {
     <section className="pt80">
       <p className="title16px">CORES</p>
       <ul className="listm3 pt20">
-        {window.localStorage.getItem("ColorFilter") ? (
+        {window.localStorage.getItem("ColorFilter") ? ( 
           <>
             <li style={{ padding: 0 }}>
               <input
                 name={"color"}
                 type="checkbox"
                 id={`cbox`}
-                onClickCapture={() =>
-                  window.localStorage.removeItem("ColorFilter")
-                }
+                onClickCapture={handlerChange}
+                
                 checked
                 readOnly
               />

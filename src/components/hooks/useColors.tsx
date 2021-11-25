@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 export const useColors = () => {
     const [arrayColors, setarrayColors] = useState<any>(null)
-    //const arrayColors:any = []
     useEffect(() => {
       fetch("http://localhost:5000/products")
       .then((response) => {

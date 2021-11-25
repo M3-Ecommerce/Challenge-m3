@@ -3,13 +3,13 @@ import Card from "./catalogo/Card";
 import Select from "./catalogo/Select";
 
 function Catalogo(props: any) {
-  const { arrayData} = props
+  const { arrayData, setOpenModal} = props
 
   return (
     <>
     <div className="item3 ">
         <Select />
-       <Card arrayData={arrayData} />
+       <Card arrayData={arrayData} setOpenModal={setOpenModal}/>
     </div>
      
     </>

@@ -50,20 +50,19 @@ button {
   text-align: right;
 }
 .select-right {
-  width:100%;
-  height:170px; 
+  width: 100%;
+  height: 170px;
   position: relative;
   background-color: transparent;
-  justify-content:right;
-  align-items:center;
-   display:flex;
+  justify-content: right;
+  align-items: center;
+  display: flex;
 }
 
 /* The container must be positioned relative: */
 .custom-select {
   position: relative;
   border: 1px solid var(--cinza1);
- 
 }
 
 .custom-select select {
@@ -73,7 +72,6 @@ button {
 .select-selected {
   background-color: var(--blanco);
   color: var(--preto);
-
 }
 
 /* Style the arrow inside the select element: */
@@ -85,7 +83,6 @@ button {
   height: 0;
   border: 6px solid transparent;
   border-color: #fff transparent transparent transparent;
-  
 }
 
 /* Point the arrow upwards when the select box is open (active): */
@@ -95,7 +92,8 @@ button {
 }
 
 /* style the items (options), including the selected item: */
-.select-items div,.select-selected {
+.select-items div,
+.select-selected {
   color: var(--preto);
   padding: 8px 16px;
   border: 1px solid var(--cinza1);
@@ -120,7 +118,8 @@ button {
   display: none;
 }
 
-.select-items div:hover, .same-as-selected {
+.select-items div:hover,
+.same-as-selected {
   background-color: var(--primary-color);
 }
 // padding-top
@@ -189,6 +188,9 @@ button {
 .fs16 {
   font-size: 16px;
 }
+.fs18 {
+  font-size: 18px;
+}
 
 .bold {
   font-weight: 900;
@@ -200,7 +202,6 @@ button {
 // input[type="checkbox"] + .labelm3 {
 //   cursor: pointer;
 // }
-
 
 .wrapper {
   height: 100vh;
@@ -337,7 +338,7 @@ input[type="checkbox"]:checked + .labelsize:before {
   color: var(--preto);
 }
 input[type="checkbox"]:checked + .labelsize {
- color: var(--preto);
+  color: var(--preto);
 }
 .buy-button {
   width: 90%;
@@ -467,15 +468,15 @@ input[type="checkbox"]:checked + .labelsize {
   text-align: center;
 }
 .img-contenedor {
-  overflow:hidden;
+  overflow: hidden;
 }
 .img-contenedor img {
-  transition:all .9s ease;
-  width:100%;
-  }
-  .img-contenedor:hover img {
-    transform:scale(1.1);
-    }
+  transition: all 0.9s ease;
+  width: 100%;
+}
+.img-contenedor:hover img {
+  transform: scale(1.1);
+}
 .footer {
   padding: 7px;
   text-align: center;
@@ -492,10 +493,42 @@ input[type="checkbox"]:checked + .labelsize {
   margin: 5px;
 }
 
+//.checker::before +
 
-//.checker::before + 
-
-
- div input[type="checkbox"] + label {
+div input[type="checkbox"] + label {
   cursor: pointer;
+}
+
+.fondo-modal {
+  z-index: 100;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+.modal-container{
+  z-index: 200;
+  width:440px;
+  background-color:var(--blanco);
+  box-shadow:0 0 5px var(--cinza1);
+  border:1px solid var(--cinza2);
+  padding:30px;
+  text-align:center;
+}
+.modal-separator{
+  background-color:"rgba(255,255,255,0.9)";
+  margin-block:20px;
+}
+.modal-button{
+  height:45px;
+  width:230px;
+  background-color:var(--primary-color);
+  color:var(--preto);
+  font-weight:bold
+}
+.grid-modal{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2px;
 }

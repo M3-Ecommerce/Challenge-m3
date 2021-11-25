@@ -9,8 +9,8 @@ function Filters(props:any) {
     <div className="item2 ">
       <p className="titlem3 pt60">Blusas</p>
       <ColorFilter setUpdate={setUpdate} update={update}/>
-      <SizeFilter/>
-      <PriceFilter/>
+      <SizeFilter setUpdate={setUpdate} update={update}/>
+      <PriceFilter setUpdate={setUpdate} update={update}/>
     </div>
   );
 }

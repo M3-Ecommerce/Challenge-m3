@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDataCard } from "../../hooks/useDataCard";
 import Select from "./Select";
 
 function Card(props:any) {
-  const {arrayData} = props
+  const {arrayData, setOpenModal} = props
+
+  interface Articles {
+    article: any;
+  }
+
+  const [articles, setArticles] = useState<Articles[]>([]);
+
+  const addShoppingCart = (id:number) =>{
+    window.localStorage.setItem("LastAdd", `${id}`)
+    const newArticle: Articles[] = [
+      ...articles,
+      {
+        article: id,
+      },
+    ];
+
+    window.localStorage.setItem("ShoppingCart", JSON.stringify(newArticle));
+    setArticles(newArticle)
+    setOpenModal(true)
+  }
 
   return ( 
       <div className="grid-catalogo">
@@ -24,7 +44,7 @@ function Card(props:any) {
               <p className="fs16 pb10">
                 até {item.parcelamento[0]}x de R${item.parcelamento[1]}
               </p>
-              <button className="buy-button">COMPRAR</button>
+              <button className="buy-button" onClick={()=> addShoppingCart(item.id) }>COMPRAR</button>
             </div>
           );
         })}
