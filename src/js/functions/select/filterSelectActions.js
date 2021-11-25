@@ -1,6 +1,6 @@
 import { SelectProductFilter } from "../../classes";
 
-import modalAction from "../modalAction";
+import modalAction from "../others/modalAction";
 
 const filterSelectActions = (e, productList) => {
   const selectProductFilter = new SelectProductFilter(productList);

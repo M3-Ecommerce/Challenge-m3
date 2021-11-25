@@ -1,4 +1,4 @@
-import getScreenSize from "../getScreenSize";
+import getScreenSize from "../others/getScreenSize";
 import filterProductsActions from "../product/filterProductsActions";
 
 const accordionListenerByScreenSize = (productList) => {

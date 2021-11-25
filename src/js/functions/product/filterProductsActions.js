@@ -1,8 +1,8 @@
 import { ProductFilter } from "../../classes";
 
-import getScreenSize from "../getScreenSize";
+import getScreenSize from "../others/getScreenSize";
+import modalAction from "../others/modalAction";
 import inputValids from "./inputValids";
-import modalAction from "../modalAction";
 
 const filterProductsActions = (e, productList) => {
   const productFilter = new ProductFilter(productList);
