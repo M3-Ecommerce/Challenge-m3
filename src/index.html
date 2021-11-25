@@ -1,19 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desenvolvedor M3</title>
   <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 
 <body>
+  
+    <!-------------HEADER - LOGO Y CARRITO DE COMPRAS-------->
+    <section class="cont-header">
+      <div class="cont-header-flex">
+        <div class="flex-img1">
+          <img src="./img/logo-m3.png">
+        </div>
+        <div class="flex-img2">
+          <img src="./img/icon.png">
+          <div class="carritoCont">
+            <span class="carrito" id="carrito">0</span>
+          </div>
+        </div>
+        
+      </div>
+     </section>
+    <hr class="linea"size="2px">
+    
+    
 
+  
+  <!---------------HEADER - BLUSAS Y ORDER BY---------------->
+     <h1 class="blusas2">Blusas</h1>
+    <section class="cont-bodyHead">
+
+      <div class="blusas">
+        <h1>Blusas</h1>
+      </div>
+
+
+      <div class="blusasOrderby">
+            <select class="select-css" name="menu" id="selectOrderBy">
+              <option name ="orderBy" value="ordenar">Ordernar por</option>
+              <option name ="orderBy" value="1">Mas recientes</option>
+              <option name ="orderBy" value="2">Menor precio</option>
+              <option name ="orderBy" value="3">Mayor precio</option>
+            </select>
+      </div>
+
+        
+      <div id="nav-bar">
+          <span class="nav-bar" id="btnMenu">Filtrar</span>
+      </div>
+
+
+      <div class="cont-filter" id="menu1">
+          <div class="filtrar-filter">
+            <h2>FILTRAR </h2>
+            <div id="cerrarCont">
+              <img src="https://img.icons8.com/ios/50/000000/close-window.png" id="cerrarVentana"></img>
+            </div>
+          </div>
+          <hr class="linea2" size="2px">
+          <div class="color-filter" id="color-filter">
+            <h1>COLORES <i id="btnColor" class="fas fa-caret-down"></i></h1>
+            <form class="formColor" id="formcolor">
+              <label>
+                <input type="radio" name="color" id="amarillo" value="Amarelo">
+                <span>Amarillo</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="azul" value="Azul">
+                <span>Azul</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="blanco" value="Branco">
+                <span>Blanco</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="gris" value="Cinza">
+                <span>Gris</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="naranja" value="Laranja">
+                <span>Naranja</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="verde" value="Verde">
+                <span>Verde</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="verde" value="Vermelho">
+                <span>Rojo</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="negro" value="Preto">
+                <span>Negro</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="rosa" value="Rosa">
+                <span>Rosa</span>
+              </label><br>
+              <label>
+                <input type="radio" name="color" id="vino" value="Vino">
+                <span>Vino</span>
+              </label><br>
+            </form>
+          </div>
+        
+          <div class="talla-filter" id="talla-filter">
+            <h1>TAMAÑOS <i id="btnTalla" class="fas fa-caret-down"></i></h1>
+              <form class="formTalla" id="formTalla">
+                  <input class="boxtalla" type="radio" name="talla" value="P" id="P">
+                  <label class="labeltalla" for="P">P</label>
+                  
+                  <input class="boxtalla" type="radio" name="talla" value="M" id="M">
+                  <label class="labeltalla" for="M">M</label>
+                  
+                  <input class="boxtalla" type="radio" name="talla" value="G" id="G">
+                  <label class="labeltalla" for="G">G</label>
+                  
+                  <input class="boxtalla" type="radio" name="talla" value="GG" id="GG">
+                  <label class="labeltalla" for="GG">GG</label>  
+        
+                  <input class="boxtalla" type="radio" name="talla" value="U" id="U">
+                  <label class="labeltalla" for="U">U</label>
+        
+                  <input class="boxtalla" type="radio" name="talla" value="36" id="36">
+                  <label class="labeltalla" for="36">36</label>  
+        
+                  <input class="boxtalla" type="radio" name="talla" value="38" id="38">
+                  <label class="labeltalla" for="38">38</label>  
+        
+                  <input class="boxtalla" type="radio" name="talla" value="40" id="40">
+                  <label class="labeltalla" for="40">40</label>  
+              </form>
+          </div>
+          
+          <div class="precio-filter" id="precio-filter">
+            <h1>RANGO DE PRECIOS <i id="btnPrecio" class="fas fa-caret-down"></i></h1>
+              <form class="formPrecio" id="formPrecio">
+                <label>
+                  <input type="radio" name="precio" value="0 50">
+                  <span>de R$0 a R$50</span>
+                </label><br>
+                <label>
+                  <input type="radio" name="precio" value="51 150">
+                  <span>de R$51 a R$150</span>
+                </label><br>
+                <label>
+                  <input type="radio" name="precio" value="151 300">
+                  <span>de R$151 a R$300</span>
+                </label><br>
+                <label>
+                  <input type="radio" name="precio" value="301 500">
+                  <span>de R$301 a R$500</span>
+                </label><br>
+                <label>
+                  <input type="radio" name="precio" value="500">
+                  <span>a partir de R$500</span>
+                </label>
+              </form>
+          </div>
+          <div id="btnNav_2">
+            <span class="btnNav_2" id="btnMenu2">APLICAR</span>
+          </div>
+          <div id="btnNav_3">
+            <span class="btnNav_3" id="btnMenu4">LIMPIAR</span>
+          </div>
+      </div>
+    </section>
+  
+  
+  
+  <!---------------BODY - FILTER Y TARJETAS------------------>
+    <section class="cont-body"> 
+      <div class="cont-filter-1"></div>
+      <div id="app"></div>
+      
+    </section>
+
+
+
+  <!-------------------BOTON CARGAR MAS---------------------->    
+    <div class="btn-footer">
+      <button id="btnMore"class="btn-cargarMas">CARGAR MAS</button>
+    </div>
+  
+
+  <!------------------------FOOTER---------------------------->
+    <footer class="cont-footer">
+      <h1>M3: Implantação de E-commerce VTEX</h1>
+    </footer>
+  
+    
+    <!---------------------SCRIPT----------------------------->
+    <script src="bundle.js"></script>
 </body>
-<h1>Desafio m3</h1>
-
-<script src="bundle.js"></script>
 
 </html>
