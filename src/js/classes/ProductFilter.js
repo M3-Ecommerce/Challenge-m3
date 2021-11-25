@@ -6,9 +6,12 @@ class ProductFilter extends ProductList {
     this.$colorFilterForm = document.getElementById("colorFilter");
     this.$sizeFilter = document.getElementById("sizeFilter");
     this.$priceRangeFilterForm = document.getElementById("priceRangeFilter");
+    this.$btnShowMore = document.getElementById("btnShowMore");
   }
 
   applyFilters() {
+    this.$btnShowMore.classList.add("delete");
+
     const products = [
       ...this.filterProductsByColor(),
       ...this.filterProductsBySize(),
@@ -19,9 +22,12 @@ class ProductFilter extends ProductList {
 
     const noFilters = this.validateFilters() && filteredProducts.length === 0;
 
-    noFilters
-      ? this.renderProducts(this.productList)
-      : this.renderProducts(filteredProducts);
+    if (noFilters) {
+      this.renderProducts(this.productList);
+      this.$btnShowMore.classList.remove("delete");
+    } else {
+      this.renderProducts(filteredProducts);
+    }
   }
 
   validateFilters() {
@@ -37,6 +43,7 @@ class ProductFilter extends ProductList {
     this.$colorFilterForm.reset();
     this.$priceRangeFilterForm.reset();
     this.cleanSizeFilter();
+    this.$btnShowMore.classList.remove("delete");
   }
 
   cleanSizeFilter() {

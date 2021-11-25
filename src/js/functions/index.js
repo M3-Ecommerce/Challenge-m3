@@ -3,6 +3,7 @@ import accordionListenerByScreenSize from "./accordion/accordionListenerByScreen
 import filterSelectActions from "./select/filterSelectActions";
 import filterProductsActions from "./product/filterProductsActions";
 import buttonSizeActions from "./accordion/buttonSizeActions";
+import showMoreProducts from "./product/showMoreProducts";
 
 export {
   setSelectState,
@@ -10,4 +11,5 @@ export {
   filterSelectActions,
   filterProductsActions,
   buttonSizeActions,
+  showMoreProducts,
 };

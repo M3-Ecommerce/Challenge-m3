@@ -62,8 +62,14 @@ class ProductList {
 
     this.$productListContent.innerHTML = "";
 
-    products.forEach((product) => {
+    products.forEach((product, index) => {
+      const initialProducts = 8;
+
       const $productTemplate = this.productTemplate(product);
+
+      if (index > initialProducts) {
+        $productTemplate.classList.add("hide");
+      }
       $fragment.appendChild($productTemplate);
     });
 
