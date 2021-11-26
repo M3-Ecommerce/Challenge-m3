@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ModalConfirm from "./components/body/buys/ModalConfirm";
+import ModalSale from "./components/body/buys/ModalSale";
 import Catalogo from "./components/body/Catalogo";
 import Filters from "./components/body/Filters";
 import Body from "./components/webparts/Body";
@@ -8,7 +9,7 @@ import Header from "./components/webparts/Header";
 
 function App() {
   const [openModal, setOpenModal] = useState(false)
-
+  const [openModal2, setOpenModal2] = useState(false)
   return (
     <>
     {
@@ -17,9 +18,15 @@ function App() {
     :
     <></>
     }
+    {
+      openModal2 ?
+    <ModalSale setOpenModal2={setOpenModal2} openModal2={openModal2} />
+    :
+    <></>
+    }
       <div className="wrapper">
         <div className="grid-container">
-          <Header />
+          <Header setOpenModal2={setOpenModal2} openModal2={openModal2} />
           <Body setOpenModal={setOpenModal} />
           <Footer />
         </div>

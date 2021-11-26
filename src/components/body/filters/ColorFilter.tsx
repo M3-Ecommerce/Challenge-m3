@@ -29,7 +29,7 @@ function ColorFilter(props: any) {
     }
   }, [seeMore]);
   return (
-    <section className="pt80">
+    <section className="pt20">
       <p className="title16px">CORES</p>
       <ul className="listm3 pt20">
         {window.localStorage.getItem("ColorFilter") ? ( 
