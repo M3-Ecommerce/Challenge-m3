@@ -1,0 +1,84 @@
+@import "reset";
+
+body {
+    margin: 1px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.agregar {
+    background-color: white;
+    color: black;
+    border: 2px solid gray;
+    transition-duration: 0.4s;
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.agregar:hover {
+    background-color: rgb(41, 170, 245);
+    color: black;
+}
+
+.button-add {
+    font-size: 13px;
+    text-align: center;
+    padding: 6px 40px;
+    border-radius: 2px;
+    background-color: white;
+    color: black;
+    border: solid 2px black;
+    transition-duration: 0.4s;
+    justify-content: center;
+}
+
+.button-add:hover {
+    background-color: rgb(41, 170, 245);
+    border: 1px solid black
+    
+}
+
+.page-nav {
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+}
+
+.product-container {
+    margin: 1px;
+    padding: 10px 30px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.product-container:hover {
+    box-shadow: 0 8px 15px 0 rgba(0,0,0,0.2);
+}
+
+.product-container img {
+    width: 150px;
+    height: 200px;   
+    margin-bottom: 10px; 
+}
+
+.product-container p {
+    font-size: 13px;
+    text-align: center;
+}
+
+.product-container h6 {
+    text-align: center;
+}
+
+.product-container h5 {
+    text-align: center;
+}
+

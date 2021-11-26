@@ -1,19 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desenvolvedor M3</title>
-  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="scss/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
+  <div class="page-nav">
+    <img src="img/logo-m3.png" >
+    <button id="carrito" class="agregar" onclick="carrito()">Carrito</button>
+  </div>
+  <hr />
+
+  <div class="contenedor">
+    <h1>Blusas</h1>
+
+    <input type="radio" name="Filtro" id="Todo" checked>
+      <label for="Todo">Todo</label>
+
+    <input type="radio" name="Filtro" id="Precio">
+      <label for="Precio">Precio</label>
+
+    <input type="radio" name="Filtro" id="Camisa">
+      <label for="Color">Color</label>
+
+    <input type="radio" name="Filtro" id="Cardigan">
+      <label for="Tamaño">Tamaño</label>
+
+        <div class="product-container">
+          <img src="img/img_2.png" alt="" >
+            <h6>CAMISETA MESCLA</h6>
+              <h5>R$28,00</h5>
+            <p>ate 3x de R$9,33</P>
+          <button class="button-add" onclick="add('img_2', 28)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_3.png" alt="">
+            <h6>SAIA EM CUORO</h6>
+              <h5>R$ 398,00</h5>
+            <P>ate 10x de R$39,80</P>
+          <button class="button-add" onclick="add('img_3', 398)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_4.png" alt="">
+            <h6>CARDIGAN TIGRE</h6>
+              <h5>R$ 398,00</h5>
+            <P>ate 3x de R$9,33</P>
+          <button class="button-add" onclick="add('img_4', 398)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_5.png" alt="">
+            <h6>CARDIGAN OFF WHITE</h6>
+              <h5>R$ 99,90</h5>
+            <P>ate 3x de R$33,30</P>
+          <button class="button-add" onclick="add('img_5', 99.90)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_6.png" alt="">
+            <h6>CARDIGAN OFF WHITE</h6>
+              <h5>R$ 99,90</h5>
+            <P>ate 3x de R$33,30</P>
+          <button class="button-add" onclick="add('img_6', 9.33)">Agregar</button> 
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_7.png" alt="">
+            <h6>CASACO PELOS</h6>
+              <h5>R$ 398,00</h5>
+            <P>ate 10x de R$39,80</P>
+          <button class="button-add" onclick="add('img_7', 398)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_8.png" alt="">
+            <h6>CROPPED STRIPES</h6>
+              <h5>R$ 120,00</h5>
+            <P>ate 3x de R$40,00</P>
+          <button class="button-add"  onclick="add('img_8', 120)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_9.png" alt="">
+            <h6>CAMISA TRANSPARENTE</h6>
+              <h5>R$ 398,00</h5>
+            <P>ate 10x de R$39,80</P>
+          <button class="button-add"  onclick="add('img_9', 398)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+          <img src="img/img_10.png" alt="">
+            <h6>CARDIGAN TIGRE</h6>
+              <h5>R$ 398,00</h5>
+            <P>ate 10x de R$39,80</P>
+          <button class="button-add"  onclick="add('img_10', 398)">Agregar</button>
+        </div>
+
+ 
+
+  </div>
 </body>
 <h1>Desafio m3</h1>
 
-<script src="bundle.js"></script>
+<script src="js/index.js"></script>
 
 </html>
