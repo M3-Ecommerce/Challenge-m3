@@ -107,7 +107,10 @@ html, body {
     .content-filtermobile__button {
         padding: 10px;
         width: 50vw;
-        font-size: 1rem;  
+        font-size: 1rem;
+        background-color: white;
+        border: var(--black) 1px solid;
+        color: var(--grey2);  
     };
     .content-head-orderby {
         width: 50%;
@@ -286,9 +289,49 @@ html, body {
     margin-bottom: 15px;
 };
 
-
-
-
+.mobile-filter {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vw;
+    z-index: 1000;
+    height: 100vh;
+    background-color: white;
+};
+.mobile-header {
+    display: flex;
+    height: 38px;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    align-items: baseline;
+};
+.mobile-header-breakline {
+    margin: 0;
+};
+.mobile-header_title {
+    font-weight: 400;
+    font-size: 28px;
+    color: var(--grey2);
+};
+.mobile-close {
+    height: 30px;
+    color: var(--black);
+    border: none;
+    background-color: inherit;
+    font-size: 2rem; 
+};
+.mobile-content__button {
+    border: none;
+    background-color: inherit;
+    font-weight: 400;
+    font-size: 22px;
+    padding: 15px;
+};
 
 // ----------------- Footer --------------------
 .footer {

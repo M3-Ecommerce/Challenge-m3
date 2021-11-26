@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { OrderMobile } from './OrderMobile';
 import { FilterMobile } from './FilterMobile';
+import { SelectFilter } from './SelectFilter';
 
 const pricesRange = [
     {id:1, min:0, max:50, isActive:false},
@@ -20,7 +21,7 @@ export const Content = () => {
     const [prices, setPrices] = useState(pricesRange);
     const [clearButton, setClearButton] = useState(false);
     const [order, setOrder] = useState('');
-    
+
     // responsive buttons component
     const [filterMob, setFilterMob] = useState(false);
     const [orderMob, setOrderMob] = useState(false);
@@ -136,10 +137,6 @@ export const Content = () => {
         };
     };
 
-    const handleSortClick = (event) => {
-        setOrder(event.target.value);
-    };
-    
     const fetchFilterSortProducts = async() => {
        
         let keyWord = {
@@ -169,6 +166,10 @@ export const Content = () => {
         };
     };
 
+    const handleSortClick = (value) => {
+        setOrder(value);
+    };
+
     useEffect(() => {
         (async () => {
             await startGetData();
@@ -185,16 +186,16 @@ export const Content = () => {
         (async () => {
             await fetchFilterSortProducts();
         })();
-    }, [order]);
+    }, [order]);    
 
-    const handleFilterMob = () => {
-        setFilterMob(true);
-    };
     const handleOrderFilterMob = () => {
-        setOrderMob(true);
+        console.log('handleOrderFilterMob');
+    };
+    
+    const handleFilterMob = (newState) => {
+        setFilterMob(newState);
     };
 
-    
     return (
         <div className="content">
             <div className="content-head">
@@ -202,52 +203,20 @@ export const Content = () => {
                 <div className="content-filtermobile">
                     <button 
                         className="content-filtermobile__button"
-                        onClick={handleFilterMob} 
+                        onClick={() => handleFilterMob(true)} 
                     >
                         Filtrar
                     </button>
                     <button 
                         className="content-filtermobile__button"
-                        onClick={handleOrderFilterMob}
+                        onClick={() => handleOrderFilterMob(true)}
                     >
                         Ordenar
                     </button>
                 </div>
-                
-                <form>
-                    <select 
-                        name="sortContent" 
-                        className="content-head-orderby"
-                        onChange={handleSortClick}
-                        value={order}
-                    >
-                        <option 
-                            className="content-head-orderby__option" 
-                            value="" 
-                            defaultValue
-                        >
-                            Ordenar por
-                        </option>
-                        <option 
-                            className="content-head-orderby__option"
-                            value="moreRecent" 
-                        >
-                            Mas recentes
-                        </option>
-                        <option 
-                            className="content-head-orderby__option" 
-                            value="lessPrice"
-                        >
-                            Menor preço
-                        </option>
-                        <option 
-                            className="content-head-orderby__option" 
-                            value="higherPrice" 
-                        >
-                            Maior preço
-                        </option>
-                    </select>
-                </form>
+                <div>
+                    <SelectFilter handleSortClick={handleSortClick} value={order}/>
+                </div>
             </div>
             <div className="content-body">
                 <aside className="content-filter">
@@ -339,7 +308,12 @@ export const Content = () => {
                     <b>CARREGAR MAIS</b>
                 </button>
             </div>
-            <FilterMobile/>
+            { (filterMob===true) && 
+                <FilterMobile 
+                    handleFilterMob={(newState) => handleFilterMob(newState)}
+                    handleSortClick={(value) => handleSortClick(value)}
+                />
+            }
             <OrderMobile/>            
         </div>
     );
