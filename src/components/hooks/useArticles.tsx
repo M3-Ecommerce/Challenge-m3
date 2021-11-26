@@ -1,28 +1,18 @@
 import { useEffect, useState } from "react";
 
-export  const useArticles = async (openModal2: boolean) => {
-  const [article, setArticle] = useState<any[]>([]);
-  let array = [{}]
+export  const useArticles = async (openModal2: boolean, item:any) => {
+  const [article, setArticle] = useState<any>(null)
   useEffect(() => {
-    
-    const lastAdd = JSON.parse(
-      window.localStorage.getItem("ShoppingCart") || ""
-    );
-
-    lastAdd?.map((item: any, index:any) => {
-       fetch(`http://localhost:5000/products/${item?.article}`)
-        .then((response:any) => {
-         
-          return response.json();
-        })
-        .then((recurso:any) => {
-          array[index] = recurso
-          
-        });
-        setArticle(array);
-    });
-    
-  }, [openModal2]);
+    fetch(`http://localhost:5000/products/${item.article}`)
+    .then((response) => {
+        return response.json();
+      })
+      .then((recurso) => {
+       
+        setArticle(recurso)
+        
+      });
+  }, [openModal2])
 
   return { article };
 };

@@ -3,12 +3,15 @@ import { useArticles } from "../../hooks/useArticles";
 
 function ModalSale(props: any) {
   const { setOpenModal2, openModal2 } = props;
-  const data:any =  useArticles(openModal2);
-  const { article } = data;
-  console.log(article)
+  // const data:any =  useArticles(openModal2)
+  // const { article } = data;
+  // console.log(data)
+
+  const sales = JSON.parse(window.localStorage.getItem("ShoppingCart") || "")
+
+  console.log(sales)
   return (
     <>
-      {article != null ? (
         <div
           className="content-center fondo-modal"
           onClick={() => console.log("hello")}
@@ -18,18 +21,32 @@ function ModalSale(props: any) {
             Carrinho de compras
             </p>
             <hr className="modal-separator" />
-            <div className="grid-modal2" style={{display:"flex"}}>
+            {
+              sales?.map((article:any, i:number )=>{
+                  console.log(article)
+                return(
+                <div key={i} className="grid-modal2" style={{display:"flex"}}>
                 <div style={{width:"30%"}}>
                     <img style={{width:"30%"}} src={article?.image} />
                 </div>
               
               <div style={{width:"60%"}}>
-                <p className="fs18 bold">{`${article?.name} | Cor ${article?.color} | Tamanho [${article?.size[0]}]`}</p>
+                <p className="fs18 bold">{`${article?.name} | Cor ${article?.color} `}</p>
+                <p className="fs16 bold pt10">
+                  R${" "}
+                  {article?.price.toLocaleString("en-IN", {
+                    currency: "INR",
+                    minimumFractionDigits: 2,
+                  })}
+                </p>
               </div>
               <div style={{width:"10%"}}>
                   <p className="fs16">x</p>
               </div>
-            </div>
+            </div>)
+              })
+            }
+            
 
             <hr className="modal-separator" />
             <button className="fs16 modal-button" title="Confirmar compra">
@@ -44,9 +61,6 @@ function ModalSale(props: any) {
             </p>
           </div>
         </div>
-      ) : (
-        <p>Loading ...</p>
-      )}
     </>
   );
 }

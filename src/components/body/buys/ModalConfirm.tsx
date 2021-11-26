@@ -2,10 +2,15 @@ import React from "react";
 import { useArticleRequest } from "../../hooks/useArticleRequest";
 
 function ModalConfirm(props: any) {
-  const { setOpenModal, openModal } = props;
+  const { setOpenModal, openModal, setOpenModal2 } = props;
   const data = useArticleRequest(openModal);
   const { article } = data;
   console.log(article);
+
+  const handlerClick = () =>{
+    setOpenModal(false)
+    setOpenModal2(true)
+  }
   return (
     <>
       {article != null ? (
@@ -35,7 +40,7 @@ function ModalConfirm(props: any) {
             </div>
 
             <hr className="modal-separator" />
-            <button className="fs16 modal-button" title="Finalizar compra">
+            <button className="fs16 modal-button" title="Finalizar compra" onClick={handlerClick} >
               Finalizar compra
             </button>
             <p

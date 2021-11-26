@@ -6,17 +6,25 @@ function Card(props:any) {
   const {arrayData, setOpenModal} = props
 
   interface Articles {
-    article: any;
+    id: any;
+    name: string;
+    color: string;
+    image: string;
+    price: any;
   }
 
   const [articles, setArticles] = useState<Articles[]>([]);
 
-  const addShoppingCart = (id:number) =>{
-    window.localStorage.setItem("LastAdd", `${id}`)
+  const addShoppingCart = (item:any) =>{
+    window.localStorage.setItem("LastAdd", `${item.id}`)
     const newArticle: Articles[] = [
       ...articles,
       {
-        article: `${id}`,
+        id: `${item.id}`,
+        image: item.image,
+        name: item.name,
+        color: item.color,
+        price: item.price,
       },
     ];
 
@@ -44,7 +52,7 @@ function Card(props:any) {
               <p className="fs16 pb10">
                 até {item.parcelamento[0]}x de R${item.parcelamento[1]}
               </p>
-              <button className="buy-button" onClick={()=> addShoppingCart(item.id) }>COMPRAR</button>
+              <button className="buy-button" onClick={()=> addShoppingCart(item) }>COMPRAR</button>
             </div>
           );
         })}

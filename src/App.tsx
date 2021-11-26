@@ -6,15 +6,16 @@ import Body from "./components/webparts/Body";
 import Footer from "./components/webparts/Footer";
 import Header from "./components/webparts/Header";
 
-function App() {
+const App = () =>  {
   const [openModal, setOpenModal] = useState(false)
   const [openModal2, setOpenModal2] = useState(false)
+  
  
   return (
     <>
     {
       openModal ?
-    <ModalConfirm setOpenModal={setOpenModal} openModal={openModal} />
+    <ModalConfirm setOpenModal={setOpenModal} openModal={openModal} setOpenModal2={setOpenModal2} />
     :
     <></>
     }
