@@ -14,7 +14,7 @@ const pricesRange = [
 ];
 const baseUrl = "http://localhost:5000/products"; 
 
-export const Content = () => {
+export const Content = ({handleBuyClick}) => {
         
     const [products, setProducts] = useState({data: [], loading: true, error: null});
     const [colors, setColors] = useState([]);
@@ -230,6 +230,7 @@ export const Content = () => {
                     handleFilterReset={handleFilterReset}
                     handleSizeClick={(selectedSize) => {handleSizeClick(selectedSize)}}
                     handlePriceClick={(selectedPrice) => {handlePriceClick(selectedPrice)}}
+                    handleBuyClick={handleBuyClick}
                 />
             </div>
             <div className="box-button">

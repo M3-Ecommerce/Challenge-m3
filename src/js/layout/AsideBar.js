@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 
 export const AsideBar = (props) => {
@@ -12,9 +12,10 @@ export const AsideBar = (props) => {
         handleColorClick,
         handleFilterReset,
         handleSizeClick,
-        handlePriceClick, 
-    } = props;
-
+        handlePriceClick,
+        handleBuyClick
+    } = props; 
+    
     return (
         <div className="content-body">
             <aside className="content-filter">
@@ -92,7 +93,12 @@ export const AsideBar = (props) => {
                         <p className="content-filter-card__promo">
                             até ${product.parcelamento[0]}x de R ${product.parcelamento[1]}
                         </p>
-                        <button className="content-filter-card__button"><b>COMPRAR</b></button>
+                        <button 
+                            className="content-filter-card__button"
+                            onClick={handleBuyClick}
+                        >
+                            <b>COMPRAR</b>
+                        </button>
                     </div>
                 ))}
             </div>
