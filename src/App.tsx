@@ -6,7 +6,7 @@ import Body from "./components/webparts/Body";
 import Footer from "./components/webparts/Footer";
 import Header from "./components/webparts/Header";
 
-async function App() {
+function App() {
   const [openModal, setOpenModal] = useState(false)
   const [openModal2, setOpenModal2] = useState(false)
  
