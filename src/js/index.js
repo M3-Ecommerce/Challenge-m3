@@ -6,6 +6,8 @@ const cardsContent = document.getElementById('cards-content');
 let car = {};
 
 
+
+
 // -----------------  Peticion a la API-------------
 
 const URL = 'http://localhost:5000/products/';
@@ -232,7 +234,12 @@ function repaintCards(url) {
   const fetchData2 = fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      pintarCards(data)
+      pintarCards(data) //screen.width<900
+
+      if(window.screen.width >= 900){
+        pintarForm()
+      }
+      
     })
 }
 
@@ -317,10 +324,31 @@ const buttonFiltern = document.getElementById("buttonFilter");
 
 const buttonFormClear = document.getElementById("buttonFormClear");
 
-
-buttonFiltern.onclick = function() {
+const  pintarForm =()=>{
   modal.style.display = "flex";
 }
+
+//if (screen.width>900){
+  buttonFiltern.onclick = function() {
+    modal.style.display = "flex";
+  }
+  
+//} 
+ /* buttonFiltern.onclick = function() {
+  modal.style.display = "flex";
+} */
+ 
+if (window.screen.width <= 900){
+  buttonFiltern.onclick = function() {
+    modal.style.display = "flex";
+  }
+  
+} else if(window.screen.width >= 900) {
+  modal.style.display = "flex";
+}
+
+
+
 
 buttonFormClear.onclick = function() {
   modal.style.display = "none";
@@ -339,8 +367,67 @@ document.getElementById("closeFilterIcon").onclick = function() {
   modal.style.display = "none";
 };
 
+/* if(window.screen.width >= 900){
+  modal.style.display = "flex";
+}
+
+/* 
+ */
+
+/* if(window.innerWidth > 900){
+  function() ={
+    modal.style.display = "flex";
+  }
+} */ 
+
+window.onresize = resize;
+
+function resize()
+{
+  if(window.screen.width >= 900) {
+    modal.style.display = "flex";
+  }
+}
 
 
+
+
+// modal carrito 
+
+
+
+//---------------- Modal------------------------------------------------
+
+
+
+const tableContaines = document.getElementById("tableContaines");
+
+
+const carcompras = document.getElementById("carcompras");
+
+
+const cierreCarrito = document.getElementById("cierreCarrito");
+
+
+
+carcompras.onclick = function() {
+    tableContaines.style.display = "flex";
+}
+  
+
+
+
+
+cierreCarrito.onclick = function() {
+  tableContaines.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if (event.target == tableContaines) {
+    tableContaines.style.display = "none";
+  }
+}
 
 //-------
 //---------------- Modal  order------------------------------------------------
@@ -376,6 +463,7 @@ const opcion = document.querySelectorAll('.form__titles');
 // Permite recorrer cada una de nuestras opciones
 opcion.forEach(e => {
 
+  
   // Añadimos un evento a cada elemento seleccionado
   e.addEventListener('click', function(e){
 
@@ -384,6 +472,7 @@ opcion.forEach(e => {
       padre.children[1].classList.toggle('animation');
       padre.parentNode.children[1].classList.toggle('animation');
   });
+  
 
 
 });
@@ -409,6 +498,40 @@ menorPrecio.onclick = function() {
   order.style.display = "none";
 }
 
+
+
+// -------- Order/
+
+
+const listaordenar = document.getElementById('lista__titulo')
+const listaItems = document.getElementById('lista__titulo--items')
+listaordenar.onclick = function() {
+  listaItems.style.display = "flex";
+  listaItems.style.flexDirection = "column";
+  
+
+  
+}
+
+
+
+
+
+var lista__mayorprecio = document.getElementById("lista__mayorprecio");
+
+
+lista__mayorprecio.onclick = function() {
+  repaintCards('http://localhost:5000/products?_sort=price&_order=desc')
+  listaItems.style.display = "none";
+}
+
+var lista__menororprecio = document.getElementById("lista__menororprecio");
+
+
+lista__menororprecio.onclick = function() {
+  repaintCards('http://localhost:5000/products?_sort=price&_order=ascc')
+  listaItems.style.display = "none";
+}
 
 
 /* 

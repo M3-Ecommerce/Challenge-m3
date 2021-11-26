@@ -26,8 +26,12 @@
 html{
   font-size: 62.5%; /*1rem=10px*/
   font-family: 'Open Sans', sans-serif;
+  cursor: default;
 }
 
+body {
+  cursor: default;
+}
 
 
 // --------------------------HEADER-----------------
@@ -104,7 +108,10 @@ header {
 
 
 
+
 //-------------- CARD (ITEMS)
+
+
 
 .main__items {
   width: 100%;
@@ -352,16 +359,295 @@ input[type=checkbox]:checked ~ div {
   
 }
 
-.modalOrder {
+
+
+.lista{
+  display: none;
+}
+
+
+//------- Carrito
+
+
+
+.tableContaines{
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
+ position: absolute; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ // padding-top: 100px; /* Location of the box */
+  right: 0;
+  top: 50px;
+  width: 375px;
+  max-width: 550px; 
+  min-height: 300px ;
+  background-color: var(--primariaButtonBlue);
+  border-radius: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table{
+  width: 375px; 
+  height: auto;
+  border: 1px solid var(--grayLine);
+  border-collapse: collapse;
+}
+
+
+thead{
+  font-size: 1.6rem;
+ // background-color: var(--grayLine)
+}
+
+thead th {
+  
+  border: solid 2px var(--buttonFilters);
+  height: 30px;
+  width: 120px;
+  text-align: center;
+  color: white;
+    font-weight: bold;
+  background-color: var(--cadText);
+  //opacity: 0.5;
+}
+
+
+tr{
+  border: solid 2px var(--buttonFilters);
+  height: 30px;
+  width: 120px;
+  background-color: white;
+}
+
+td, th{
+  
+  font-size: 1.4rem;
+  color: var(--title);
+  border: 1px solid var(--buttonFilters);
+  text-align: center;
+}
+
+
+
+
+.tableContaines .comprar{
+  background-color: var(--cadText);
+  color: white;
+  width: 80px;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+} 
+
+.tableContainesTitle {
+  display: flex;
+} 
+
+.tableContainesTitle p {
+  right: 0;
+  margin-left: 240px;
+}
+
+.tableContaines h2, .tableContaines p {
+  color: var(--cadText);
+  font-size:1.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+//--------- Desktop--------
+
+
+@media (min-width: 900px) {
+  .main__info {
+    //text-align: left;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 36px;
+  }
+.main__title{
+  width: auto;
+  margin-top:0;
+}
+  
+  #modalForm{
+    display: flex; 
+    position: absolute; 
+    z-index: 1; 
+    left: auto;
+    top: auto; 
+    width: 250px; 
+    height: auto;
+    margin-left: 20px;
+   
+   
+    
+  }
+  
+   .modal__Filter{
+    display: none;
+  } 
+
+  .menudesplegable .form__fieldset .form__colors--ocult{
+    height: auto;
+    //width: 30%;
+    overflow: hidden;
+  }
+  .main__items {
+    width: 620px;
+    //margin:auto; //300px;
+    margin-left: 300px;
+  } 
+
+  .close{
+    display: none;
+  }
+
+  .form__id--icon{
+    display: none;
+  }
+
+  .form__id{
+    font-size:1.6rem;
+  }
+
+  .main__buttonsFilters{
+    display: none;
+  } 
+
+  .form__titles{
+    padding-top: 0;
+  }
+
+  .form__colors--ocult{
+    padding-bottom: 30px;
+  }
+
+  .lista{
+    display:flex;
+    flex-direction: column;
+  }
+
+
+  .lista__titulo--items{
+    display: none;
+  }
+
+
+  
+  .lista__titulo{
+    margin: 0;
+    font-size:1.6rem;
+    border: 1px solid var(--grayLine);
+    display: flex;
+    
+   
+    align-items: center;
+    justify-content: center;
+    width: 142px;
+    height: 42px;
+   
+  }
+
+  .lista__titulo--items{
+    width: 142px;
+    height: 107px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top:155px;
+  }
+    
+  .lista__titulo--items li{
+    width: 100%;
+    height: 36px;
+    font-size: 1.6rem;
+  
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    z-index: 100;
+  }
+  
+/* 
+  .main__buttonsFilters p, .main__buttonsFilters span{
+    display: flex;
+   padding-left:10px;
+    justify-content:center;
+    align-items:center;
+    
+  }
+
+  .main__buttonsFilters span{
+    padding-left:  10px;
+  } */
+
+  
+  
+}
+
+
+
+
+
+
+
+@media (min-width: 1200px) {
+  .main__items {
+    
+  margin-left: 400px; 
+  }  
+  .main__info {
+    
+    margin: 50px 80px 50px 162px;
+  }
+
+  #modalForm{
+   
+    margin-left: 162px;
+  }
+
+  header{
+    padding: 0 80px;
+  }
+
+  .header__number{
+    margin-right: 50px;
+  }
+ 
+}
+
+
+
+
+@media (min-width: 1400px) {
+  .main__items {
+    
+  margin:auto; 
+  }  
+
+  .main__info {
+    
+    margin: 50px 162px;
+  }
+
+ 
+
+  #modalForm{
+   
+    margin-left: 162px;
+  }
+ 
+
+  header{
+    padding: 0 162px;
+  }
+
+  .header__number{
+    margin-right: 130px;
+  }
 }
