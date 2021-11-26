@@ -18,7 +18,9 @@ export const OrderMobile = (props) => {
     } = props
 
 
-
+    const handleClick = () => {
+        console.log('ey!')
+    }
     return (
         <div className="mobile-filter">
             <div className="mobile-header">
@@ -43,6 +45,14 @@ export const OrderMobile = (props) => {
                     handleSizeClick={(selectedSize) => {handleSizeClick(selectedSize)}}
                     handlePriceClick={(selectedPrice) => {handlePriceClick(selectedPrice)}}
                 />
+                <div className="mobile-button-success">
+                    <button 
+                        className="button_success"
+                        onClick={() => {handleOrderFilterMob(false)}}
+                    >
+                        APLICAR
+                    </button>
+                </div>
             </div>
         </div>
     );
