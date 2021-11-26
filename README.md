@@ -13,7 +13,7 @@ Una vez que el comando es ejecutado el levantará 2 servidores, siendo ellos:
  - uno para el json-server que es responsable por exportar una api con la lista de productos que corre en la puerta 5000. Para acceder los produtos basta utilizar la url: http://localhost:5000/products
 
 
-###Contiene: 
+### Contiene: 
 - HTML5 y CSS3
 - Requisicción a API para obtener los productos
 - Funcionalidad: Filtrar productos por color, tamaño y precio.
