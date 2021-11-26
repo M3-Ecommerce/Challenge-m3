@@ -3,7 +3,7 @@ import { BsBagFill } from "react-icons/bs";
 
 function Header(props: any) {
  
-  const { setOpenModal2, openModal2} = props;
+  const { setOpenModal2, openModal2, openModal} = props;
   const [badge, setBadge] = useState(0);
   useEffect(() => {
     if (window.localStorage.getItem("ShoppingCart") !== undefined) {
@@ -21,7 +21,7 @@ function Header(props: any) {
     } else {
         setBadge(0);
     }
-  }, [openModal2]);
+  }, [openModal]);
   return (
     <>
     <div className="item1 headerm3">

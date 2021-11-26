@@ -3,9 +3,9 @@ import { useArticles } from "../../hooks/useArticles";
 
 function ModalSale(props: any) {
   const { setOpenModal2, openModal2 } = props;
-  const data = useArticles(openModal2);
+  const data:any =  useArticles(openModal2);
   const { article } = data;
-  console.log(article);
+  console.log(article)
   return (
     <>
       {article != null ? (

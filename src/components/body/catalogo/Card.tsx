@@ -16,7 +16,7 @@ function Card(props:any) {
     const newArticle: Articles[] = [
       ...articles,
       {
-        article: id,
+        article: `${id}`,
       },
     ];
 

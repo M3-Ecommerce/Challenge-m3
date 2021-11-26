@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import ModalConfirm from "./components/body/buys/ModalConfirm";
 import ModalSale from "./components/body/buys/ModalSale";
-import Catalogo from "./components/body/Catalogo";
-import Filters from "./components/body/Filters";
+import { useArticles } from "./components/hooks/useArticles";
 import Body from "./components/webparts/Body";
 import Footer from "./components/webparts/Footer";
 import Header from "./components/webparts/Header";
 
-function App() {
+async function App() {
   const [openModal, setOpenModal] = useState(false)
   const [openModal2, setOpenModal2] = useState(false)
+ 
   return (
     <>
     {
@@ -26,7 +26,7 @@ function App() {
     }
       <div className="wrapper">
         <div className="grid-container">
-          <Header setOpenModal2={setOpenModal2} openModal2={openModal2} />
+          <Header setOpenModal2={setOpenModal2} openModal2={openModal2} openModal={openModal} />
           <Body setOpenModal={setOpenModal} />
           <Footer />
         </div>
