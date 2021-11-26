@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = (paths) => ({
   entry: {
-    main: path.resolve(__dirname, paths.scripts.src),
+    main: ["@babel/polyfill", path.resolve(__dirname, paths.scripts.src)],
   },
   output: {
     path: path.resolve(__dirname, paths.dest),
@@ -14,20 +14,18 @@ module.exports = (paths) => ({
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        include: path.resolve(__dirname, paths.scripts.src),
+        // include: path.resolve(__dirname, paths.scripts.src),
         use: {
           loader: "babel-loader",
           options: {
-            presets: [
-              [
-                "@babel/preset-env",
-                { targets: { browsers: ["last 2 versions"] } },
-              ],
-            ],
             cacheDirectory: true,
           },
         },
       },
+      {
+        test: /\.(css|s[ac]ss)$/,
+        use: "css-loader"
+      }
     ],
   },
 });
