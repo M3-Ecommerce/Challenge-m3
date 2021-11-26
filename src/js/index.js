@@ -134,11 +134,11 @@ const mostrarFiltros = (btnShow) => {
   };
 }
 
-const btnMenu = document.querySelector("#btnMenu");
+const btnMenu = document.querySelector("#nav-bar");
 const menu1 = document.querySelector("#menu1");
 mostrarFiltros(btnMenu)
 
-const btnMenu2 = document.querySelector("#btnMenu2");
+const btnMenu2 = document.querySelector("#btnNav_2");
 mostrarFiltros(btnMenu2)
 
 const cerrarVentana = document.querySelector("#cerrarVentana");
@@ -146,7 +146,7 @@ mostrarFiltros(cerrarVentana)
 
 
 //-----------BOTON PARA LIMPIAR FORMULARIOS----------------
-const btnMenu4 = document.querySelector("#btnMenu4");
+const btnMenu4 = document.querySelector("#btnNav_3");
 btnMenu4.onclick = () => {
   ResetProduct();
 };
