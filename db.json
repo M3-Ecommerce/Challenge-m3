@@ -5,7 +5,7 @@
       "name": "Camiseta Mescla",
       "price": 28.8,
       "parcelamento": [3, 9.33],
-      "color": "Cinza",
+      "color": "grisOscuro",
       "image": "/img/img_2.png",
       "size": ["M", "GG"],
       "date": "1995-12-17"
@@ -15,7 +15,7 @@
       "name": "Saia em couro",
       "price": 398.0,
       "parcelamento": [5, 30],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_3.png",
       "size": ["G", "40"],
       "date": "1996-12-17"
@@ -75,7 +75,7 @@
       "name": "Camisa Transparente",
       "price": 398.0,
       "parcelamento": [5, 30],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_9.png",
       "size": ["P"],
       "date": "2000-11-17"
@@ -85,7 +85,7 @@
       "name": "Pochete Clutch",
       "price": 99.0,
       "parcelamento": [3, 33],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_10.png",
       "size": ["M"],
       "date": "2003-12-17"
@@ -95,7 +95,7 @@
       "name": "Pochete Clutch",
       "price": 99.0,
       "parcelamento": [3, 33],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_10.png",
       "size": ["M"],
       "date": "2003-12-17"
@@ -105,7 +105,7 @@
       "name": "Pochete Clutch",
       "price": 99.0,
       "parcelamento": [3, 33],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_10.png",
       "size": ["M"],
       "date": "2003-12-17"
@@ -115,7 +115,7 @@
       "name": "Pochete Clutch",
       "price": 99.0,
       "parcelamento": [3, 33],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_10.png",
       "size": ["M"],
       "date": "2003-12-17"
@@ -125,7 +125,7 @@
       "name": "Pochete Clutch",
       "price": 99.0,
       "parcelamento": [3, 33],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_10.png",
       "size": ["M"],
       "date": "2003-12-17"
@@ -135,7 +135,7 @@
       "name": "Pochete Clutch",
       "price": 99.0,
       "parcelamento": [3, 33],
-      "color": "Preto",
+      "color": "negro",
       "image": "/img/img_10.png",
       "size": ["M"],
       "date": "2003-12-17"

@@ -7,12 +7,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desenvolvedor M3</title>
   <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
 
 <body>
+  <header class="header">
+    <div class="contenido-header contenedor">
+      <img src="img/logo-m3.png" alt="Logotiopo">
+     
+      <div class="carrito">
+        <i class="fas fa-shopping-bag icono"></i>
+        <table>
+          <tbody>
+            <tr></tr>
+          </tbody>
+        </table> 
+      </div>
+    </div>   
+   
+    <hr>
+  </header>
 
+  <main>
+    <section>
+      <div class="encabezado contenedor">
+        <h1>Blusas</h1>
+
+        <select class="orden-precio" name="ordenar" id="ordenar">          
+          <option selected disabled>Ordenar por</option>
+          <option value="1">Mas recentes</option>
+          <option value="2">Menor preco</option>
+          <option value="3">Malor preco</option>            
+        </select>
+      </div>
+    </section>
+      
+    <section class="contendio-principal contenedor">
+      <div class="contenedor-filtros ">
+        <div class="contenedor-color">
+          <h2>CORES</h2>
+          <div class="colores">
+            <label><input type="checkbox" id="amarelo">Amarelo</label>
+            <label><input type="checkbox" id="azul">Azul</label>
+            <label><input type="checkbox" id="branco">Branco</label>
+            <label><input type="checkbox" id="grisOscuro">grisOscuro</label>
+            <label><input type="checkbox" id="laranja">Laranja</label>
+            <label><input type="checkbox" id="verde">Verde</label>
+            <label><input type="checkbox" id="vermelho">Vermelho</label>
+            <label><input type="checkbox" id="negro">negro</label>
+            <label><input type="checkbox" id="rosa">Rosa</label>
+            <label><input type="checkbox" id="vinho">Vinho</label>      
+          </div>
+        </div>
+          
+        <div class="contenedor-tallas">
+          <h2>TAMAHOS</h2>
+          <div class="tallas">
+            <div><button>P</button></div>
+            <div><button>M</button></div>
+            <div><button>G</button></div>
+            <div><button>GG</button></div>  
+            <div><button>U</button></div>  
+            <div><button>36</button></div>  
+            <div><button>38</button></div>  
+            <div><button>40</button></div>    
+          </div>         
+        </div>
+    
+        <div class="contenedor-precios">
+          <h2>FAIXA DE PRECO</h2>
+          <div class="rango-precios">
+            <label><input type="checkbox" name="" id="a">de R$0 até R$50</label>
+            <label><input type="checkbox" name="" id="b">de R$51 até R$150</label>
+            <label><input type="checkbox" name="" id="c">de R$151 até R$300</label>
+            <label><input type="checkbox" name="" id="d">de R$301 até R$500</label>
+            <label><input type="checkbox" name="" id="e">a partir de R$ 500</label>  
+          </div>
+        </div>
+      </div> 
+      <!-- cierre contendor filtros-->
+      
+      <!-- galeria camisetas -->
+      <div class="contenedor-card">
+    
+        <!-- <div class="card">
+          <div class="card-img">
+            <img src="img/img_2.png" alt="img-blusa">
+          </div>
+          <div class="card-inf">
+            <p class="titulo">CAMISETA MESCLA</p>
+            <p class="precio">R$ 28,00</p>
+            <p class="promo">até 3x de R$9,33</p>
+            <button class="btn-comprar">COMPRAR</button>
+          </div>        
+        </div> -->
+
+      </div> 
+    </section>
+   
+    <div class="boton">
+      <button class="btn-cargar">CAREGAR MAIS</button>
+    </div>    
+
+    <footer class="footer">
+      <p>M3: IMPLATACAO DE E-COMMERCE VTEX</p>
+    </footer>
+
+  </main>
 </body>
-<h1>Desafio m3</h1>
 
 <script src="bundle.js"></script>
 

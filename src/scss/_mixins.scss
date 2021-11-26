@@ -1,0 +1,23 @@
+//Media query
+@mixin telefono {
+    @media (min-width: $telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media(min-width: $tablet) {
+        @content; 
+    }
+}   
+
+@mixin boton($bgColor, $color){
+    border: none;
+    background-color: $bgColor;
+    color: $color;
+    font-weight: 600;
+    width: 19.5rem;
+    height: 3.3rem;
+    outline: none;
+    cursor: pointer;
+}

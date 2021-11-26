@@ -1,0 +1,28 @@
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+ 
+
+body{
+    font-size: 1.6rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor{
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+img{ 
+    max-width: 100%;
+}
+
+h2{
+    padding: 2rem 0 1.5rem 0;
+    color: $gris;
+} 

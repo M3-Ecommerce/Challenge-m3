@@ -1,0 +1,131 @@
+.contendio-principal{
+    
+    @include telefono {
+        display: grid;
+        grid-template-columns: 20% 70%;
+        gap: 7rem;
+    }
+}
+
+.encabezado{
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 0 6rem 0;
+   
+    h1{
+        font-size: 3.5rem;
+    }
+
+    .orden-precio{
+        height: 4.2rem;
+        width: 14.2rem;
+    }    
+}
+
+.contenedor-filtros{
+    display:none;
+
+    @include telefono{
+        display: block;
+    }
+}
+
+.contenedor-color{
+    h2{
+        padding-top: 0;
+    }
+}
+
+.colores, .rango-precios{
+    display: grid;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    appearance: none;
+    border: 1px solid $gris;
+    width: 16px;
+    height: 16px;
+}
+
+input[type="checkbox"]:checked{
+    background-color: $primario;
+}
+
+.tallas{
+    display: grid;
+    width: 15.7rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .8rem;
+
+    button{
+        width: 3.2rem;
+        height: 3.2rem;
+        padding: .1rem;
+        background-color: $blanco;
+        color: $gris;
+        border: 1px solid $grisOscuro;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+// Articulos Compra 
+.contenedor-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;   
+
+    @include tablet{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    } 
+}
+
+.card{
+    text-align: center;
+    &:nth-of-type(n+10){
+        display: none;
+    }
+     
+    .card-inf{
+
+        .titulo{
+            margin: 1rem 0 1rem 0;
+            text-transform: uppercase;
+        }
+
+        .precio{
+            color: $negro;
+            font-weight: 700;
+            margin-bottom: .5rem;
+        }
+
+        .promo{
+            color: $gris;
+            margin-bottom: 1.4rem;
+        }
+    }
+
+    .btn-comprar{
+        @include boton($negro, $blanco);
+    }
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+
+    .btn-cargar{
+        @include boton($primario, $blanco);
+    }
+}
