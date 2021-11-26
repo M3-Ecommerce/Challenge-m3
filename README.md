@@ -2,6 +2,9 @@
 
 Aplicacion de prueba Vacante Desarrollador front-end
 
+Carlos Andres Quijano Barros
+carlosquijano98@gmail.com
+
 ---
 ## Requerimientos
 
