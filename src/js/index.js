@@ -26,7 +26,7 @@ const showProducts = (products) => {
             <img class="imgProducto" src="${product.image}"></img>
             <h1 class="nombreProducto"}">${product.name}</h1>
             <h1 class="precioProducto">R$ ${product.price}</h1>
-            <h1 class="ordenProducto">hasta ${product.parcelamento[0]}x de R$${product.parcelamento[1]}</h1>
+            <h1 class="ordenProducto">até ${product.parcelamento[0]}x de R$${product.parcelamento[1]}</h1>
             <button class="btn-comprarProducto" id="btnComprar_${product.id}">Comprar</button>
         </div>
     `
